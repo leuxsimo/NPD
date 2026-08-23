@@ -1,0 +1,210 @@
+{%- comment -%}
+  Hero Banner Section - NPD Store
+  High-impact gradient header with headline, subtitle & CTA buttons
+{%- endcomment -%}
+
+<section class="hero-banner-section">
+  <div class="hero-banner-bg">
+    <div class="container hero-container text-center flex flex-col items-center justify-center">
+      
+      <!-- Top Badge -->
+      <div class="hero-badge flex items-center gap-2">
+        <span class="hero-badge-dot"></span>
+        <span>Digital Presentation Assets</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-title">
+        {{ section.settings.heading | default: "Premium Presentation Templates" }}
+      </h1>
+
+      <!-- Subtitle Description -->
+      <p class="hero-subtitle">
+        {{ section.settings.subheading | default: "Professional templates for PowerPoint, Keynote & Google Slides designed for high-stakes pitches and presentations." }}
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-actions flex flex-wrap items-center justify-center gap-4">
+        <a href="{{ section.settings.btn_primary_link | default: '/collections/all' }}" class="btn btn-primary hero-btn-primary">
+          {{ section.settings.btn_primary_text | default: "Browse Templates" }}
+        </a>
+        <a href="{{ section.settings.btn_secondary_link | default: '/pages/build-a-bundle' }}" class="btn btn-outline-white hero-btn-secondary">
+          {{ section.settings.btn_secondary_text | default: "Build Your Bundle" }}
+        </a>
+      </div>
+
+      <!-- Format Compatibility Pills -->
+      <div class="hero-formats flex flex-wrap items-center justify-center gap-3">
+        <span class="format-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          PowerPoint (.pptx)
+        </span>
+        <span class="format-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          Apple Keynote (.key)
+        </span>
+        <span class="format-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Google Slides
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-banner-section {
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+  }
+
+  .hero-banner-bg {
+    background: linear-gradient(135deg, #1E40AF 0%, #2563EB 40%, #4F46E5 100%);
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+    position: relative;
+  }
+
+  /* Decorative Ambient Glow */
+  .hero-banner-bg::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, rgba(37, 99, 235, 0) 70%);
+    pointer-events: none;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    padding: var(--space-1) var(--space-4);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: #F9FAFB;
+  }
+
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    box-shadow: 0 0 8px var(--color-accent);
+  }
+
+  .hero-title {
+    color: #FFFFFF;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-btn-primary {
+    background-color: #FFFFFF;
+    color: var(--color-primary);
+    border-color: #FFFFFF;
+    font-size: 1.05rem;
+    padding: 0.875rem 2rem;
+  }
+
+  .hero-btn-primary:hover {
+    background-color: #F9FAFB;
+    color: var(--color-primary-hover);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-btn-secondary {
+    font-size: 1.05rem;
+    padding: 0.875rem 2rem;
+  }
+
+  .hero-formats {
+    margin-top: var(--space-8);
+  }
+
+  .format-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Title",
+      "default": "Premium Presentation Templates"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading Description",
+      "default": "Professional templates for PowerPoint, Keynote & Google Slides designed for high-stakes pitches and presentations."
+    },
+    {
+      "type": "text",
+      "id": "btn_primary_text",
+      "label": "Primary Button Text",
+      "default": "Browse Templates"
+    },
+    {
+      "type": "url",
+      "id": "btn_primary_link",
+      "label": "Primary Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "btn_secondary_text",
+      "label": "Secondary Button Text",
+      "default": "Build Your Bundle"
+    },
+    {
+      "type": "url",
+      "id": "btn_secondary_link",
+      "label": "Secondary Button Link",
+      "default": "/pages/build-a-bundle"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}
