@@ -1,0 +1,118 @@
+{%- comment -%}
+  Editorial Minimalist Testimonials Section - SlideLab
+{%- endcomment -%}
+
+<section class="testimonials">
+  <div class="testimonials__inner">
+    <div class="testimonials__header">
+      <span class="testimonials__eyebrow">
+        {{ section.settings.eyebrow | default: "TRUSTED BY PROFESSIONALS" }}
+      </span>
+      <h2 class="testimonials__title">
+        {{ section.settings.title | default: "What Our Clients Say" }}
+      </h2>
+      <p class="testimonials__subtitle">
+        {{ section.settings.subtitle | default: "Real feedback from executives, consultants, and founders who use SlideLab templates." }}
+      </p>
+    </div>
+    <div class="testimonials__grid">
+      
+      <!-- Testimonial 1 -->
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__quote">"The Business Plan template saved me weeks of work. The structure was exactly what my investors expected. Closed our Series A within 3 months."</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">SK</div>
+          <div class="testimonial__info">
+            <div class="testimonial__name">Sarah K.</div>
+            <div class="testimonial__role">Founder, Tech Startup</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__quote">"Finally, presentation templates that don't look like generic corporate garbage. The editorial design is sophisticated and my clients noticed immediately."</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">MR</div>
+          <div class="testimonial__info">
+            <div class="testimonial__name">Michael R.</div>
+            <div class="testimonial__role">Management Consultant</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__quote">"I've purchased templates from 5 different sites. SlideLab is the only one where every slide feels intentional and well-thought-out. Worth every penny."</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">JL</div>
+          <div class="testimonial__info">
+            <div class="testimonial__name">Jennifer L.</div>
+            <div class="testimonial__role">Marketing Director</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__quote">"The Pitch Deck template helped me raise $2M in seed funding. The financial slides were particularly impressive. My VC said it was the cleanest deck he'd seen."</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">DT</div>
+          <div class="testimonial__info">
+            <div class="testimonial__name">David T.</div>
+            <div class="testimonial__role">CEO, SaaS Company</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__quote">"As a professor, I needed academic presentations that looked professional but not flashy. SlideLab's templates are perfect for conferences and lectures."</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">EP</div>
+          <div class="testimonial__info">
+            <div class="testimonial__name">Dr. Elena P.</div>
+            <div class="testimonial__role">University Professor</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "TRUSTED BY PROFESSIONALS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What Our Clients Say"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Real feedback from executives, consultants, and founders who use SlideLab templates."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %}

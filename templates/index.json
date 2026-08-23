@@ -57,6 +57,14 @@
         "cta_label": "View Template — $49",
         "note": "One-time payment • Lifetime access"
       }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "eyebrow": "TRUSTED BY PROFESSIONALS",
+        "title": "What Our Clients Say",
+        "subtitle": "Real feedback from executives, consultants, and founders who use SlideLab templates."
+      }
     }
   },
   "order": [
@@ -66,6 +74,7 @@
     "best-sellers",
     "how-it-works",
     "benefits-grid",
-    "featured-product"
+    "featured-product",
+    "testimonials"
   ]
 }
