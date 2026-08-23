@@ -176,6 +176,7 @@
 @media (max-width: 767px) {
   .testimonials {
     padding: 80px 24px;
+    position: relative;
   }
 
   .testimonials__header {
@@ -194,6 +195,7 @@
     gap: 24px;
     padding: 0 8px 24px 8px;
     margin: 0 -8px;
+    position: relative;
   }
 
   .testimonial {
@@ -214,12 +216,12 @@
     scrollbar-width: none;
   }
 
-  /* Add visual indicator for scroll */
-  .testimonials__grid::after {
+  /* Add visual indicator for scroll scoped to Testimonials section */
+  .testimonials::after {
     content: '→';
-    position: fixed;
+    position: absolute;
     right: 24px;
-    bottom: 280px;
+    bottom: 24px;
     font-size: 24px;
     color: #666666;
     animation: slideIndicator 2s ease-in-out infinite;
