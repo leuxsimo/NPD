@@ -1,351 +1,110 @@
 {%- comment -%}
-  Header Section - NPD Store
-  Sticky Header with Glassmorphism, Responsive Navigation, Search & Cart
+  Header Section - SlideLab Editorial Minimalist
 {%- endcomment -%}
 
-<header id="SiteHeader" class="site-header glassmorphism sticky-header">
-  <div class="container header-wrapper flex items-center justify-between">
+<header class="site-header" id="SiteHeader">
+  <div class="site-header__container">
     
-    <!-- Brand / Logo -->
-    <div class="header-logo">
-      <a href="{{ routes.root_url }}" class="logo-link flex items-center gap-2">
-        {%- if section.settings.logo != blank -%}
-          <img 
-            src="{{ section.settings.logo | image_url: width: 300 }}"
-            alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
-            width="{{ section.settings.logo_width | default: 140 }}"
-            height="auto"
-            loading="eager"
-            class="logo-image"
-          >
-        {%- else -%}
-          <span class="logo-text">NPD</span>
-          <span class="logo-badge">Templates</span>
-        {%- endif -%}
+    <!-- Mobile Hamburger Trigger (Left on Mobile) -->
+    <div class="site-header__hamburger-wrapper">
+      <button type="button" class="site-header__hamburger" id="MobileNavOpen" aria-label="Open navigation menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Logo (Left on Desktop, Centered on Mobile) -->
+    <div class="site-header__logo-wrapper">
+      <a href="{{ routes.root_url }}" class="site-header__logo">
+        {{ section.settings.logo_text | default: "SlideLab" }}
       </a>
     </div>
 
-    <!-- Desktop Navigation -->
-    <nav class="header-nav desktop-only" aria-label="Main Navigation">
-      <ul class="nav-list flex items-center gap-6">
-        {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
-          {%- for link in section.settings.menu.links -%}
-            <li class="nav-item">
-              <a href="{{ link.url }}" class="nav-link {% if link.active %}active{% endif %}">
-                {{ link.title }}
-              </a>
-            </li>
-          {%- endfor -%}
-        {%- else -%}
-          <!-- Default Navigation Items -->
-          <li class="nav-item">
-            <a href="/collections/powerpoint" class="nav-link">PowerPoint</a>
-          </li>
-          <li class="nav-item">
-            <a href="/collections/keynote" class="nav-link">Keynote</a>
-          </li>
-          <li class="nav-item">
-            <a href="/collections/google-slides" class="nav-link">Google Slides</a>
-          </li>
-          <li class="nav-item">
-            <a href="/collections/bundles" class="nav-link nav-highlight">Bundles</a>
-          </li>
-        {%- endif -%}
-      </ul>
+    <!-- Desktop Navigation (Center on Desktop) -->
+    <nav class="site-header__nav" aria-label="Main Navigation">
+      {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}" class="site-header__link">{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="/collections/powerpoint" class="site-header__link">PowerPoint</a>
+        <a href="/collections/keynote" class="site-header__link">Keynote</a>
+        <a href="/collections/google-slides" class="site-header__link">Google Slides</a>
+        <a href="/collections/bundles" class="site-header__link">Bundles</a>
+      {%- endif -%}
     </nav>
 
-    <!-- Header Actions (Search & Cart & Mobile Toggle) -->
-    <div class="header-actions flex items-center gap-4">
-      
-      <!-- Search Toggle Button -->
-      <button type="button" class="header-icon-btn search-toggle-btn" id="SearchToggleBtn" aria-label="Search">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </button>
-
-      <!-- Cart Button with Dynamic Badge -->
-      <a href="{{ routes.cart_url }}" class="header-icon-btn cart-btn" aria-label="Shopping Cart">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Right Icons (Cart) -->
+    <div class="site-header__icons">
+      <a href="{{ routes.cart_url }}" class="site-header__cart-link" aria-label="Shopping Cart">
+        <svg class="site-header__cart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
-        <span class="cart-count-badge" id="CartCountBadge">
+        <span class="site-header__cart-badge" id="CartCountBadge">
           {{ cart.item_count }}
         </span>
       </a>
-
-      <!-- Mobile Hamburger Toggle -->
-      <button type="button" class="header-icon-btn mobile-toggle-btn mobile-only" id="MobileNavToggle" aria-label="Toggle Menu" aria-expanded="false">
-        <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-        <svg class="icon-close hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
     </div>
 
-  </div>
-
-  <!-- Search Modal Overlay -->
-  <div class="search-modal hidden" id="SearchModal">
-    <div class="container search-modal-inner">
-      <form action="{{ routes.search_url }}" method="get" role="search" class="search-form flex items-center gap-2">
-        <input 
-          type="search" 
-          name="q" 
-          placeholder="Search templates (PowerPoint, Keynote, pitch decks...)" 
-          class="search-input"
-          autocomplete="off"
-        >
-        <button type="submit" class="btn btn-primary search-submit-btn">Search</button>
-        <button type="button" class="search-close-btn" id="SearchCloseBtn" aria-label="Close search">&times;</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-drawer hidden" id="MobileDrawer">
-    <div class="mobile-drawer-inner container flex flex-col gap-4">
-      <nav aria-label="Mobile Navigation">
-        <ul class="mobile-nav-list flex flex-col gap-3">
-          {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
-            {%- for link in section.settings.menu.links -%}
-              <li>
-                <a href="{{ link.url }}" class="mobile-nav-link">
-                  {{ link.title }}
-                </a>
-              </li>
-            {%- endfor -%}
-          {%- else -%}
-            <li><a href="/collections/powerpoint" class="mobile-nav-link">PowerPoint</a></li>
-            <li><a href="/collections/keynote" class="mobile-nav-link">Keynote</a></li>
-            <li><a href="/collections/google-slides" class="mobile-nav-link">Google Slides</a></li>
-            <li><a href="/collections/bundles" class="mobile-nav-link mobile-highlight">Bundles</a></li>
-          {%- endif -%}
-        </ul>
-      </nav>
-    </div>
   </div>
 </header>
 
-<style>
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .header-wrapper {
-    height: 72px;
-  }
-
-  .logo-text {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--color-primary);
-  }
-
-  .logo-badge {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-    padding: 2px 6px;
-    border-radius: var(--radius-sm);
-    letter-spacing: 0.05em;
-  }
-
-  .logo-image {
-    max-height: 40px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .nav-link {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--color-text-primary);
-    transition: color var(--transition-fast);
-    position: relative;
-    padding-top: var(--space-2);
-    padding-bottom: var(--space-2);
-  }
-
-  .nav-link:hover, .nav-link.active {
-    color: var(--color-primary);
-  }
-
-  .nav-highlight {
-    color: var(--color-primary);
-    font-weight: 600;
-  }
-
-  .header-icon-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-full);
-    color: var(--color-text-primary);
-    transition: background-color var(--transition-fast), color var(--transition-fast);
-    position: relative;
-  }
-
-  .header-icon-btn:hover {
-    background-color: var(--color-surface);
-    color: var(--color-primary);
-  }
-
-  .cart-count-badge {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-    font-size: 0.7rem;
-    font-weight: 700;
-    min-width: 18px;
-    height: 18px;
-    border-radius: var(--radius-full);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-  }
-
-  /* Responsive Display Rules */
-  @media (max-width: 767px) {
-    .desktop-only { display: none !important; }
-    .mobile-only { display: inline-flex !important; }
-  }
-  @media (min-width: 768px) {
-    .mobile-only { display: none !important; }
-    .desktop-only { display: flex !important; }
-  }
-
-  /* Search Modal */
-  .search-modal {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--space-4) 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  }
-
-  .search-input {
-    flex: 1;
-    padding: var(--space-3) var(--space-4);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    outline: none;
-    font-size: 1rem;
-  }
-
-  .search-input:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  }
-
-  .search-close-btn {
-    font-size: 1.75rem;
-    line-height: 1;
-    color: var(--color-text-secondary);
-    padding: 0 var(--space-2);
-  }
-
-  /* Mobile Drawer */
-  .mobile-drawer {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--space-6) 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .mobile-nav-link {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    display: block;
-    padding: var(--space-2) 0;
-  }
-
-  .mobile-highlight {
-    color: var(--color-primary);
-  }
-
-  .hidden { display: none !important; }
-</style>
+<!-- Mobile Drawer & Overlay -->
+<div class="mobile-drawer-overlay" id="MobileDrawerOverlay"></div>
+<aside class="mobile-drawer" id="MobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer__header">
+    <span class="site-header__logo" style="font-size: 22px;">SlideLab</span>
+    <button type="button" class="mobile-drawer__close" id="MobileNavClose" aria-label="Close navigation menu">&times;</button>
+  </div>
+  <nav class="mobile-drawer__nav" aria-label="Mobile Navigation">
+    {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}" class="mobile-drawer__link">{{ link.title }}</a>
+      {%- endfor -%}
+    {%- else -%}
+      <a href="/collections/powerpoint" class="mobile-drawer__link">PowerPoint</a>
+      <a href="/collections/keynote" class="mobile-drawer__link">Keynote</a>
+      <a href="/collections/google-slides" class="mobile-drawer__link">Google Slides</a>
+      <a href="/collections/bundles" class="mobile-drawer__link">Bundles</a>
+    {%- endif -%}
+  </nav>
+</aside>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
-    const mobileToggle = document.getElementById('MobileNavToggle');
-    const mobileDrawer = document.getElementById('MobileDrawer');
-    const iconMenu = mobileToggle ? mobileToggle.querySelector('.icon-menu') : null;
-    const iconClose = mobileToggle ? mobileToggle.querySelector('.icon-close') : null;
+    const openBtn = document.getElementById('MobileNavOpen');
+    const closeBtn = document.getElementById('MobileNavClose');
+    const drawer = document.getElementById('MobileDrawer');
+    const overlay = document.getElementById('MobileDrawerOverlay');
 
-    if (mobileToggle && mobileDrawer) {
-      mobileToggle.addEventListener('click', function() {
-        const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-        mobileToggle.setAttribute('aria-expanded', !isExpanded);
-        mobileDrawer.classList.toggle('hidden');
-        if (iconMenu && iconClose) {
-          iconMenu.classList.toggle('hidden');
-          iconClose.classList.toggle('hidden');
-        }
-      });
-    }
-
-    // Search Modal Toggle
-    const searchToggleBtn = document.getElementById('SearchToggleBtn');
-    const searchModal = document.getElementById('SearchModal');
-    const searchCloseBtn = document.getElementById('SearchCloseBtn');
-
-    if (searchToggleBtn && searchModal) {
-      searchToggleBtn.addEventListener('click', function() {
-        searchModal.classList.toggle('hidden');
-        if (!searchModal.classList.contains('hidden')) {
-          const input = searchModal.querySelector('input');
-          if (input) input.focus();
-        }
-      });
-    }
-    if (searchCloseBtn && searchModal) {
-      searchCloseBtn.addEventListener('click', function() {
-        searchModal.classList.add('hidden');
-      });
-    }
-
-    // Glassmorphism scroll accentuation
-    const header = document.getElementById('SiteHeader');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 20) {
-        header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-      } else {
-        header.style.boxShadow = 'var(--glass-shadow)';
+    function openDrawer() {
+      if (drawer && overlay) {
+        drawer.classList.add('is-active');
+        overlay.classList.add('is-active');
+        drawer.setAttribute('aria-hidden', 'false');
+        if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
       }
-    });
+    }
+
+    function closeDrawer() {
+      if (drawer && overlay) {
+        drawer.classList.remove('is-active');
+        overlay.classList.remove('is-active');
+        drawer.setAttribute('aria-hidden', 'true');
+        if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (overlay) overlay.addEventListener('click', closeDrawer);
   });
 </script>
 
@@ -354,24 +113,15 @@
   "name": "Header",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo Image"
-    },
-    {
-      "type": "range",
-      "id": "logo_width",
-      "min": 80,
-      "max": 260,
-      "step": 10,
-      "default": 140,
-      "unit": "px",
-      "label": "Logo Width"
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "SlideLab"
     },
     {
       "type": "link_list",
       "id": "menu",
-      "label": "Navigation Menu",
+      "label": "Menu",
       "default": "main-menu"
     }
   ]

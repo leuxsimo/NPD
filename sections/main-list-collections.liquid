@@ -1,0 +1,36 @@
+{%- comment -%}
+  Clean Shopify OS 2.0 Main List Collections Section
+{%- endcomment -%}
+
+<div class="page-width" style="padding: 3rem 0;">
+  <h1 style="font-size: 2.2rem; margin-bottom: 2rem; text-align: center;">Collections</h1>
+
+  {% paginate collections by 12 %}
+    <div class="grid grid-cols-3">
+      {% for collection in collections %}
+        <div class="card" style="padding: 1.5rem; text-align: center;">
+          {% if collection.featured_image %}
+            <img src="{{ collection.featured_image | image_url: width: 400 }}" alt="{{ collection.title | escape }}" style="border-radius: 4px; margin-bottom: 1rem;">
+          {% endif %}
+          <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">
+            <a href="{{ collection.url }}">{{ collection.title }}</a>
+          </h3>
+          <p style="color: #666; font-size: 0.9rem;">{{ collection.all_products_count }} products</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      <div style="margin-top: 3rem; text-align: center;">
+        {{ paginate | default_pagination }}
+      </div>
+    {% endif %}
+  {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Main List Collections",
+  "settings": []
+}
+{% endschema %}

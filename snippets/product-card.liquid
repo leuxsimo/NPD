@@ -1,0 +1,31 @@
+{% comment %}
+  Renders a product card
+  Accepts:
+  - card_product: {Object} Product Liquid object
+{% endcomment %}
+
+<div class="card product-card">
+  <a href="{{ card_product.url }}" class="card-media">
+    {% if card_product.featured_media %}
+      <img
+        src="{{ card_product.featured_media | image_url: width: 533 }}"
+        alt="{{ card_product.featured_media.alt | escape }}"
+        loading="lazy"
+        width="{{ card_product.featured_media.width }}"
+        height="{{ card_product.featured_media.height }}"
+      >
+    {% else %}
+      <div class="card-placeholder" style="background: #f4f4f4; height: 200px; display: flex; align-items: center; justify-content: center;">
+        <span>No image</span>
+      </div>
+    {% endif %}
+  </a>
+  <div class="card-content" style="padding: 1rem;">
+    <h3 class="card-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">
+      <a href="{{ card_product.url }}">{{ card_product.title }}</a>
+    </h3>
+    <div class="card-price" style="font-weight: bold;">
+      {{ card_product.price | money }}
+    </div>
+  </div>
+</div>

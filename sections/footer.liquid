@@ -1,269 +1,50 @@
 {%- comment -%}
-  Footer Section - NPD Store
-  Dark themed 3-column layout with About, Quick Links, Social Icons & Payment Options
+  Clean Shopify OS 2.0 Base Footer Section
 {%- endcomment -%}
 
-<footer class="site-footer">
-  <div class="container footer-content section-padding">
-    <div class="grid grid-1 footer-grid">
+<footer class="site-footer" style="border-top: 1px solid var(--color-base-border); padding: 3rem 0 2rem 0; margin-top: 3rem;">
+  <div class="page-width">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem;">
       
-      <!-- Column 1: About NPD -->
-      <div class="footer-col about-col">
-        <div class="footer-brand flex items-center gap-2">
-          <span class="footer-logo-text">NPD</span>
-          <span class="footer-logo-badge">Templates</span>
-        </div>
-        <p class="footer-description">
-          {{ section.settings.about_text | default: "NPD delivers premium, high-impact presentation templates for PowerPoint, Keynote & Google Slides. Engineered to help professionals & creators win more pitches." }}
-        </p>
+      <div>
+        <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">{{ shop.name }}</h4>
+        <p style="color: #666; font-size: 0.9rem;">{{ section.settings.about_text }}</p>
       </div>
 
-      <!-- Column 2: Quick Links -->
-      <div class="footer-col links-col">
-        <h3 class="footer-heading">Quick Links</h3>
-        <ul class="footer-menu flex flex-col gap-2">
-          {%- if section.settings.footer_menu != blank and section.settings.footer_menu.links.size > 0 -%}
+      {%- if section.settings.footer_menu != blank -%}
+        <div>
+          <h4 style="margin-bottom: 1rem; font-size: 1.1rem;">Quick links</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
             {%- for link in section.settings.footer_menu.links -%}
-              <li>
-                <a href="{{ link.url }}" class="footer-link">{{ link.title }}</a>
-              </li>
+              <li><a href="{{ link.url }}" style="color: #666;">{{ link.title }}</a></li>
             {%- endfor -%}
-          {%- else -%}
-            <li><a href="/pages/about" class="footer-link">About Us</a></li>
-            <li><a href="/pages/contact" class="footer-link">Contact</a></li>
-            <li><a href="/pages/faq" class="footer-link">FAQ</a></li>
-            <li><a href="/policies/privacy-policy" class="footer-link">Privacy Policy</a></li>
-            <li><a href="/policies/terms-of-service" class="footer-link">Terms of Service</a></li>
-          {%- endif -%}
-        </ul>
-      </div>
-
-      <!-- Column 3: Social Media & Connect -->
-      <div class="footer-col social-col">
-        <h3 class="footer-heading">Connect With Us</h3>
-        <p class="footer-subtext">Follow NPD for design inspiration and template releases.</p>
-        <div class="social-icons flex items-center gap-3">
-          {%- if settings.social_twitter_link != blank or section.settings.show_social -%}
-            <a href="{{ settings.social_twitter_link | default: '#' }}" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Twitter / X">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-          {%- endif -%}
-
-          {%- if settings.social_instagram_link != blank or section.settings.show_social -%}
-            <a href="{{ settings.social_instagram_link | default: '#' }}" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          {%- endif -%}
-
-          {%- if settings.social_linkedin_link != blank or section.settings.show_social -%}
-            <a href="{{ settings.social_linkedin_link | default: '#' }}" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-          {%- endif -%}
-
-          {%- if settings.social_youtube_link != blank or section.settings.show_social -%}
-            <a href="{{ settings.social_youtube_link | default: '#' }}" target="_blank" rel="noopener" class="social-icon-btn" aria-label="YouTube">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-              </svg>
-            </a>
-          {%- endif -%}
+          </ul>
         </div>
-      </div>
+      {%- endif -%}
 
     </div>
 
-    <!-- Bottom Copyright & Payment Methods -->
-    <div class="footer-bottom flex flex-col items-center justify-between gap-4">
-      <div class="copyright-text">
-        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved. Premium Presentation Templates.
-      </div>
-      
-      <!-- Payment Methods Icons -->
-      <div class="payment-icons flex items-center gap-3">
-        <!-- Visa -->
-        <span class="payment-badge" title="Visa">
-          <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="36" height="24" rx="4" fill="#1F2937"/>
-            <path d="M14.5 16H12.7L13.8 8.8H15.6L14.5 16ZM22.5 9C22.1 8.8 21.5 8.6 20.7 8.6C18.8 8.6 17.5 9.6 17.5 11C17.5 12.1 18.5 12.6 19.3 13C20.1 13.4 20.3 13.7 20.3 14.1 C20.3 14.7 19.6 15 18.9 15C18 15 17.4 14.8 16.9 14.5L16.5 16.3C17.1 16.6 18 16.8 19 16.8C21 16.8 22.3 15.8 22.3 14.3C22.3 12.3 19.5 12.1 19.5 11.2C19.5 10.9 19.8 10.5 20.6 10.5C21 10.5 21.7 10.6 22.2 10.8L22.5 9ZM27.1 16H28.7L27.3 8.8H25.9C25.5 8.8 25.1 9.1 25 9.5L22.2 16H24.1L24.5 14.9H26.8L27.1 16ZM25 13.3L25.9 10.7L26.4 13.3H25ZM11.7 8.8H9L9 9C11.1 9.5 12.5 10.9 13.1 12.4L12.3 8.8H11.7Z" fill="#F9FAFB"/>
-          </svg>
-        </span>
-        
-        <!-- Mastercard -->
-        <span class="payment-badge" title="Mastercard">
-          <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="36" height="24" rx="4" fill="#1F2937"/>
-            <circle cx="14" cy="12" r="6" fill="#EB001B"/>
-            <circle cx="22" cy="12" r="6" fill="#F79E1B"/>
-            <path d="M18 7.8A5.96 5.96 0 0 1 20.2 12A5.96 5.96 0 0 1 18 16.2A5.96 5.96 0 0 1 15.8 12A5.96 5.96 0 0 1 18 7.8Z" fill="#FF5F00"/>
-          </svg>
-        </span>
-
-        <!-- PayPal -->
-        <span class="payment-badge" title="PayPal">
-          <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="36" height="24" rx="4" fill="#1F2937"/>
-            <path d="M12.5 7.5H16.5C18.2 7.5 19.3 8.3 19 10C18.7 11.7 17.3 12.8 15.5 12.8H13.7L13 17H11L12.5 7.5Z" fill="#003087"/>
-            <path d="M14.5 9.5H18.5C19.8 9.5 20.6 10.2 20.3 11.5C20 12.8 18.8 13.8 17.3 13.8H15.5L14.8 18H13L14.5 9.5Z" fill="#0079C1"/>
-          </svg>
-        </span>
-
-        <!-- Apple Pay -->
-        <span class="payment-badge" title="Apple Pay">
-          <svg width="36" height="24" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="36" height="24" rx="4" fill="#1F2937"/>
-            <path d="M14.2 11.2C14.1 10.3 14.8 9.6 15.7 9.1C15.2 8.4 14.3 8 13.4 8C12.3 8 11.6 8.6 11.1 8.6C10.5 8.6 9.9 8 9 8C7.6 8 6.4 8.8 5.7 10C4.3 12.4 5.3 16 6.7 18C7.4 19 8.2 20 9.2 20C10.1 20 10.5 19.4 11.6 19.4C12.7 19.4 13 20 14 20C15 20 15.7 19.1 16.3 18.1C17.1 17 17.4 15.9 17.4 15.8C17.3 15.7 15.4 15 15.4 12.8C15.4 10.9 16.9 10 17 9.9C16 8.5 14.6 8.3 14.2 11.2ZM13.3 6.7C13.8 6 14.1 5 14 4C13.1 4 12 4.6 11.4 5.3C10.9 5.9 10.5 6.9 10.7 7.9C11.7 7.9 12.7 7.3 13.3 6.7Z" fill="#F9FAFB"/>
-            <path d="M21.5 8H24.3C26.1 8 27.2 9.1 27.2 10.8C27.2 12.5 26 13.6 24.3 13.6H22.7V17.5H21.5V8ZM22.7 9.1V12.5H24.2C25.3 12.5 26 11.8 26 10.8C26 9.8 25.3 9.1 24.2 9.1H22.7Z" fill="#F9FAFB"/>
-          </svg>
-        </span>
-      </div>
+    <div style="border-top: 1px solid var(--color-base-border); padding-top: 1.5rem; text-align: center; color: #666; font-size: 0.85rem;">
+      &copy; {{ 'now' | date: '%Y' }}, {{ shop.name }}. {{ 'sections.footer.copyright' | t }}
     </div>
   </div>
 </footer>
-
-<style>
-  .site-footer {
-    background-color: var(--color-dark-bg);
-    color: var(--color-dark-text-primary);
-    border-top: 1px solid var(--color-dark-border);
-  }
-
-  .footer-grid {
-    gap: var(--space-8);
-  }
-
-  @media (min-width: 768px) {
-    .footer-grid {
-      grid-template-columns: 2fr 1fr 1fr;
-    }
-  }
-
-  .footer-logo-text {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: #FFFFFF;
-  }
-
-  .footer-logo-badge {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-    padding: 2px 6px;
-    border-radius: var(--radius-sm);
-  }
-
-  .footer-description {
-    color: var(--color-dark-text-secondary);
-    margin-top: var(--space-3);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    max-width: 400px;
-  }
-
-  .footer-heading {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #FFFFFF;
-    margin-bottom: var(--space-4);
-  }
-
-  .footer-subtext {
-    color: var(--color-dark-text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-4);
-  }
-
-  .footer-link {
-    color: var(--color-dark-text-secondary);
-    font-size: 0.95rem;
-    transition: color var(--transition-fast), transform var(--transition-fast);
-    display: inline-block;
-  }
-
-  .footer-link:hover {
-    color: #FFFFFF;
-    transform: translateX(4px);
-  }
-
-  .social-icon-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: var(--radius-full);
-    background-color: var(--color-dark-surface);
-    color: var(--color-dark-text-primary);
-    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-  }
-
-  .social-icon-btn:hover {
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-    transform: translateY(-2px);
-  }
-
-  .footer-bottom {
-    border-top: 1px solid var(--color-dark-border);
-    padding-top: var(--space-6);
-    margin-top: var(--space-8);
-  }
-
-  @media (min-width: 640px) {
-    .footer-bottom {
-      flex-direction: row;
-    }
-  }
-
-  .copyright-text {
-    color: var(--color-dark-text-secondary);
-    font-size: 0.875rem;
-  }
-
-  .payment-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
 
 {% schema %}
 {
   "name": "Footer",
   "settings": [
     {
-      "type": "textarea",
+      "type": "text",
       "id": "about_text",
-      "label": "About NPD Text",
-      "default": "NPD delivers premium, high-impact presentation templates for PowerPoint, Keynote & Google Slides. Engineered to help professionals & creators win more pitches."
+      "label": "About text",
+      "default": "Shop our collection of high-quality digital templates."
     },
     {
       "type": "link_list",
       "id": "footer_menu",
-      "label": "Footer Menu",
-      "default": "footer"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "label": "Show Social Media Icons",
-      "default": true
+      "default": "footer",
+      "label": "Footer Menu"
     }
   ]
 }

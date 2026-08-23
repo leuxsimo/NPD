@@ -1,0 +1,33 @@
+{%- comment -%}
+  Clean Shopify OS 2.0 Main Collection Section
+{%- endcomment -%}
+
+<div class="collection-section page-width" style="padding: 3rem 0;">
+  <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; text-align: center;">{{ collection.title }}</h1>
+  {%- if collection.description != blank -%}
+    <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">{{ collection.description }}</p>
+  {%- endif -%}
+
+  {% paginate collection.products by 12 %}
+    <div class="grid grid-cols-4" style="margin-top: 2rem;">
+      {%- for product in collection.products -%}
+        {% render 'product-card', card_product: product %}
+      {%- else -%}
+        <p>{{ 'sections.featured_collection.no_products' | t }}</p>
+      {%- endfor -%}
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      <div style="margin-top: 3rem; text-align: center;">
+        {{ paginate | default_pagination }}
+      </div>
+    {%- endif -%}
+  {% endpaginate %}
+</div>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": []
+}
+{% endschema %}

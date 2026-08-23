@@ -1,0 +1,49 @@
+{%- comment -%}
+  Announcement Bar Section - SlideLab Editorial Minimalist
+{%- endcomment -%}
+
+<div class="announcement-bar">
+  <div class="announcement-bar__content">
+    {{ section.settings.text | default: "Premium Presentation Systems | Free Starter Kit Available" }}
+  </div>
+</div>
+
+<style>
+  .announcement-bar {
+    height: 40px;
+    background-color: #111111;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .announcement-bar__content {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    .announcement-bar {
+      display: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Premium Presentation Systems | Free Starter Kit Available"
+    }
+  ]
+}
+{% endschema %}

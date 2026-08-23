@@ -3,92 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="theme-color" content="#2563EB">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="{{ canonical_url }}">
-  {%- if settings.favicon != blank -%}
-    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
-  {%- endif -%}
 
-  <!-- Preconnect & Preload Critical Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
-
-  <!-- SEO Title & Description -->
   <title>
     {{ page_title }}
     {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-    {%- unless page_title contains shop.name %} | {{ shop.name }}{% endunless -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
   </title>
 
-  {%- if page_description -%}
+  {% if page_description %}
     <meta name="description" content="{{ page_description | escape }}">
-  {%- else -%}
-    <meta name="description" content="NPD - Premium Presentation Templates for PowerPoint, Keynote, and Google Slides. High-impact digital presentation assets.">
-  {%- endif -%}
+  {% endif %}
 
-  <meta name="keywords" content="PowerPoint templates, Keynote templates, Google Slides templates, presentation templates, NPD templates, digital templates, professional slides">
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 
-  <!-- Open Graph Metadata for Social Sharing -->
-  <meta property="og:site_name" content="{{ shop.name }}">
-  <meta property="og:url" content="{{ canonical_url }}">
-  <meta property="og:title" content="{{ page_title | escape }}">
-  <meta property="og:type" content="website">
-  {%- if page_description -%}
-    <meta property="og:description" content="{{ page_description | escape }}">
-  {%- endif -%}
-  {%- if page_image -%}
-    <meta property="og:image" content="http:{{ page_image | image_url: width: 1200 }}">
-    <meta property="og:image:secure_url" content="https:{{ page_image | image_url: width: 1200 }}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-  {%- endif -%}
-
-  <!-- Twitter Card Metadata -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page_title | escape }}">
-  {%- if page_description -%}
-    <meta name="twitter:description" content="{{ page_description | escape }}">
-  {%- endif -%}
-
-  <!-- Schema.org Organization Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": {{ shop.name | json }},
-      "url": {{ shop.url | json }},
-      {% if settings.logo != blank %}
-        "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
-      {% endif %}
-      "sameAs": [
-        {{ settings.social_twitter_link | default: "" | json }},
-        {{ settings.social_instagram_link | default: "" | json }},
-        {{ settings.social_linkedin_link | default: "" | json }},
-        {{ settings.social_youtube_link | default: "" | json }},
-        {{ settings.social_facebook_link | default: "" | json }}
-      ]
-    }
-  </script>
-
-  <!-- Shopify Header Hooks & Base CSS -->
   {{ content_for_header }}
   {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'component-header.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
 </head>
 
-<body class="template-{{ template.name | handle }}">
+<body>
   <a class="sr-only" href="#MainContent">Skip to content</a>
 
+  {% section 'announcement-bar' %}
   {% section 'header' %}
 
-  <main id="MainContent" class="main-content" role="main" tabindex="-1">
+  <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
     {{ content_for_layout }}
   </main>
 
   {% section 'footer' %}
-
 </body>
 </html>

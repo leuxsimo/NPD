@@ -1,1 +1,87 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "NPD OS 2.0 Base Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Shopify OS 2.0 Minimal Base",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "colors_solid_button_labels",
+        "label": "Solid button label",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "colors_primary_accent",
+        "label": "Primary Accent",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "colors_secondary_accent",
+        "label": "Secondary Accent",
+        "default": "#005BD3"
+      },
+      {
+        "type": "color",
+        "id": "colors_text",
+        "label": "Body Text",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "colors_background",
+        "label": "Background",
+        "default": "#FFFFFF"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Heading Font",
+        "default": "assistant_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body Font",
+        "default": "assistant_n4"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "YouTube"
+      }
+    ]
+  }
+]

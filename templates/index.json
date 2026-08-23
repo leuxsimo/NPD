@@ -1,28 +1,23 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero-banner",
+    "banner": {
+      "type": "image-banner",
       "settings": {
-        "heading": "Premium Presentation Templates",
-        "subheading": "Professional templates for PowerPoint, Keynote & Google Slides",
-        "btn_primary_text": "Browse Templates",
-        "btn_primary_link": "/collections/all",
-        "btn_secondary_text": "Build Your Bundle",
-        "btn_secondary_link": "/pages/build-a-bundle"
+        "heading": "Presentation Templates",
+        "text": "Professional templates for PowerPoint, Keynote & Google Slides.",
+        "button_label": "Shop all"
       }
     },
-    "featured": {
+    "featured_collection": {
       "type": "featured-collection",
       "settings": {
         "title": "Featured Templates",
-        "collection": "all",
-        "products_to_show": 4,
-        "btn_text": "View All Templates"
+        "products_to_show": 4
       }
     }
   },
   "order": [
-    "hero",
-    "featured"
+    "banner",
+    "featured_collection"
   ]
 }
