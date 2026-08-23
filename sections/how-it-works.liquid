@@ -1,0 +1,67 @@
+{%- comment -%}
+  Editorial Minimalist How It Works Section - SlideLab
+{%- endcomment -%}
+
+<section class="how-it-works">
+  <div class="how-it-works__inner">
+    <div class="how-it-works__header">
+      <span class="how-it-works__eyebrow">
+        {{ section.settings.eyebrow | default: "INSTANT DELIVERY" }}
+      </span>
+      <h2 class="how-it-works__title">
+        {{ section.settings.title | default: "How It Works" }}
+      </h2>
+      <p class="how-it-works__subtitle">
+        {{ section.settings.subtitle | default: "From purchase to presentation in under 60 seconds. No shipping, no waiting, no complications." }}
+      </p>
+    </div>
+    <div class="how-it-works__steps">
+      <div class="step">
+        <div class="step__number">01</div>
+        <h3 class="step__title">Choose Your Template</h3>
+        <p class="step__desc">Browse our curated collection of professional presentation systems and select the perfect fit for your needs.</p>
+      </div>
+      <div class="step">
+        <div class="step__number">02</div>
+        <h3 class="step__title">Complete Secure Checkout</h3>
+        <p class="step__desc">Pay once with our secure payment system. No subscriptions, no hidden fees, no recurring charges.</p>
+      </div>
+      <div class="step">
+        <div class="step__number">03</div>
+        <h3 class="step__title">Download & Customize</h3>
+        <p class="step__desc">Receive instant access to all three formats (PPTX, KEY, GSlides). Edit, customize, and present with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How it works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "INSTANT DELIVERY"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "How It Works"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "From purchase to presentation in under 60 seconds. No shipping, no waiting, no complications."
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it works"
+    }
+  ]
+}
+{% endschema %}

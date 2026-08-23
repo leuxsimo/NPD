@@ -31,12 +31,21 @@
         "cta_label": "View All Templates",
         "cta_link": "/collections/all"
       }
+    },
+    "how-it-works": {
+      "type": "how-it-works",
+      "settings": {
+        "eyebrow": "INSTANT DELIVERY",
+        "title": "How It Works",
+        "subtitle": "From purchase to presentation in under 60 seconds. No shipping, no waiting, no complications."
+      }
     }
   },
   "order": [
     "hero",
     "trust-bar",
     "format-cards",
-    "best-sellers"
+    "best-sellers",
+    "how-it-works"
   ]
 }
