@@ -1,0 +1,154 @@
+/* ==========================================================================
+   SlideLab Component: Bundle Banner Section
+   ========================================================================== */
+
+.bundle-banner {
+  background: var(--color-text);
+  color: #FFFFFF;
+  padding: 100px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bundle-banner__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+.bundle-banner__content {
+  flex: 1;
+}
+
+.bundle-banner__eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  display: block;
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+
+.bundle-banner__title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin: 0 0 24px 0;
+}
+
+.bundle-banner__desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #CCCCCC;
+  margin: 0 0 40px 0;
+  max-width: 500px;
+}
+
+.bundle-banner__offers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.bundle-offer {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bundle-offer__name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.bundle-offer__price {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.bundle-offer__save {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #4ADE80;
+  margin-left: auto;
+}
+
+.bundle-banner__cta {
+  flex-shrink: 0;
+}
+
+.bundle-banner .btn {
+  background: #FFFFFF;
+  color: var(--color-text);
+  padding: 18px 40px;
+}
+
+.bundle-banner .btn:hover {
+  background: #F0F0EE;
+  opacity: 1;
+}
+
+/* Mobile Responsive (< 768px) */
+@media (max-width: 767px) {
+  .bundle-banner {
+    padding: 80px 24px;
+  }
+
+  .bundle-banner__inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .bundle-banner__title {
+    font-size: 32px;
+  }
+
+  .bundle-banner__desc {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .bundle-banner__offers {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .bundle-offer {
+    padding: 16px 20px;
+  }
+
+  .bundle-offer__name {
+    font-size: 16px;
+  }
+
+  .bundle-offer__price {
+    font-size: 20px;
+  }
+
+  .bundle-banner__cta {
+    width: 100%;
+  }
+
+  .bundle-banner .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

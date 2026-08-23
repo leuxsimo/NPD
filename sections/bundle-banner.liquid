@@ -1,0 +1,84 @@
+{%- comment -%}
+  Editorial Minimalist Bundle Banner Section - SlideLab
+{%- endcomment -%}
+
+<section class="bundle-banner">
+  <div class="bundle-banner__inner">
+    <div class="bundle-banner__content">
+      <span class="bundle-banner__eyebrow">
+        {{ section.settings.eyebrow | default: "BEST VALUE" }}
+      </span>
+      <h2 class="bundle-banner__title">
+        {{ section.settings.title | default: "Save More with Bundles" }}
+      </h2>
+      <p class="bundle-banner__desc">
+        {{ section.settings.description | default: "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save 70%." }}
+      </p>
+      <div class="bundle-banner__offers">
+        <div class="bundle-offer">
+          <span class="bundle-offer__name">5-Pack</span>
+          <span class="bundle-offer__price">$99</span>
+          <span class="bundle-offer__save">Save $46</span>
+        </div>
+        <div class="bundle-offer">
+          <span class="bundle-offer__name">Industry Bundle</span>
+          <span class="bundle-offer__price">$149</span>
+          <span class="bundle-offer__save">Save $100+</span>
+        </div>
+        <div class="bundle-offer">
+          <span class="bundle-offer__name">Mega Bundle</span>
+          <span class="bundle-offer__price">$249</span>
+          <span class="bundle-offer__save">Save $200+</span>
+        </div>
+      </div>
+    </div>
+    <div class="bundle-banner__cta">
+      <a href="{{ section.settings.cta_link | default: '/collections/bundles' }}" class="btn">
+        {{ section.settings.cta_label | default: "Browse Bundles" }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bundle banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "BEST VALUE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Save More with Bundles"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save 70%."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button Label",
+      "default": "Browse Bundles"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link",
+      "default": "/collections/bundles"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bundle banner"
+    }
+  ]
+}
+{% endschema %}

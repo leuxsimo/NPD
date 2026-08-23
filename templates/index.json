@@ -65,6 +65,16 @@
         "title": "What Our Clients Say",
         "subtitle": "Real feedback from executives, consultants, and founders who use SlideLab templates."
       }
+    },
+    "bundle-banner": {
+      "type": "bundle-banner",
+      "settings": {
+        "eyebrow": "BEST VALUE",
+        "title": "Save More with Bundles",
+        "description": "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save 70%.",
+        "cta_label": "Browse Bundles",
+        "cta_link": "/collections/bundles"
+      }
     }
   },
   "order": [
@@ -75,6 +85,7 @@
     "how-it-works",
     "benefits-grid",
     "featured-product",
-    "testimonials"
+    "testimonials",
+    "bundle-banner"
   ]
 }
