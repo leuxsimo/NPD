@@ -74,6 +74,14 @@
         "description": "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save up to 70%.",
         "cta_label": "Browse Bundles"
       }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "COMMON QUESTIONS",
+        "title": "Frequently Asked Questions",
+        "subtitle": "Everything you need to know about SlideLab templates, licensing, and delivery."
+      }
     }
   },
   "order": [
@@ -85,6 +93,7 @@
     "benefits-grid",
     "featured-product",
     "testimonials",
-    "bundle-banner"
+    "bundle-banner",
+    "faq"
   ]
 }
