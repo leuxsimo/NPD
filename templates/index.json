@@ -14,6 +14,14 @@
       "type": "trust-bar",
       "settings": {}
     },
+    "format-cards": {
+      "type": "format-cards",
+      "settings": {
+        "eyebrow": "UNIVERSAL COMPATIBILITY",
+        "title": "One Purchase. Three Formats.",
+        "subtitle": "Every template includes PowerPoint, Keynote, and Google Slides versions. Edit on any device, anywhere."
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -25,6 +33,7 @@
   "order": [
     "hero",
     "trust-bar",
+    "format-cards",
     "featured_collection"
   ]
 }

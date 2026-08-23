@@ -1,0 +1,91 @@
+{%- comment -%}
+  Editorial Minimalist Format Cards Section - SlideLab
+{%- endcomment -%}
+
+<section class="format-cards">
+  <div class="format-cards__inner">
+    <div class="format-cards__header">
+      <span class="format-cards__eyebrow">
+        {{ section.settings.eyebrow | default: "UNIVERSAL COMPATIBILITY" }}
+      </span>
+      <h2 class="format-cards__title">
+        {{ section.settings.title | default: "One Purchase. Three Formats." }}
+      </h2>
+      <p class="format-cards__subtitle">
+        {{ section.settings.subtitle | default: "Every template includes PowerPoint, Keynote, and Google Slides versions. Edit on any device, anywhere." }}
+      </p>
+    </div>
+    <div class="format-cards__grid">
+      
+      <!-- PowerPoint Card -->
+      <div class="format-card">
+        <div class="format-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3 class="format-card__title">PowerPoint</h3>
+        <p class="format-card__desc">.PPTX format for Windows and Mac. Full editing capabilities with Microsoft Office.</p>
+      </div>
+
+      <!-- Keynote Card -->
+      <div class="format-card">
+        <div class="format-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="5" y="2" width="14" height="20" rx="2"/>
+            <line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <h3 class="format-card__title">Keynote</h3>
+        <p class="format-card__desc">.KEY format for macOS and iOS. Native Apple ecosystem integration.</p>
+      </div>
+
+      <!-- Google Slides Card -->
+      <div class="format-card">
+        <div class="format-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3 class="format-card__title">Google Slides</h3>
+        <p class="format-card__desc">Cloud-based editing. Collaborate in real-time from any browser.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Format cards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "UNIVERSAL COMPATIBILITY"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "One Purchase. Three Formats."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Every template includes PowerPoint, Keynote, and Google Slides versions. Edit on any device, anywhere."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Format cards"
+    }
+  ]
+}
+{% endschema %}
