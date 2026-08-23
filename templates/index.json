@@ -71,9 +71,8 @@
       "settings": {
         "eyebrow": "BEST VALUE",
         "title": "Save More with Bundles",
-        "description": "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save 70%.",
-        "cta_label": "Browse Bundles",
-        "cta_link": "/collections/bundles"
+        "description": "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save up to 70%.",
+        "cta_label": "Browse Bundles"
       }
     }
   },
