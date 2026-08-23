@@ -82,6 +82,15 @@
         "title": "Frequently Asked Questions",
         "subtitle": "Everything you need to know about SlideLab templates, licensing, and delivery."
       }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "FREE STARTER KIT",
+        "title": "Get 5 Premium Slides + 15% Off Your First Order",
+        "description": "Join 12,000+ professionals. Receive our Ultimate Business Presentation Starter Kit — including Executive Cover, Agenda, Strategy, Financial, and Closing slides — plus an exclusive 15% discount code for your first purchase.",
+        "button_label": "Send Me The Kit"
+      }
     }
   },
   "order": [
@@ -94,6 +103,7 @@
     "featured-product",
     "testimonials",
     "bundle-banner",
-    "faq"
+    "faq",
+    "newsletter"
   ]
 }

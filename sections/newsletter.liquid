@@ -1,0 +1,82 @@
+{%- comment -%}
+  Editorial Minimalist Newsletter Section - SlideLab
+{%- endcomment -%}
+
+<section class="newsletter">
+  <div class="newsletter__inner">
+    <div class="newsletter__content">
+      <span class="newsletter__eyebrow">
+        {{ section.settings.eyebrow | default: "FREE STARTER KIT" }}
+      </span>
+      <h2 class="newsletter__title">
+        {{ section.settings.title | default: "Get 5 Premium Slides + 15% Off Your First Order" }}
+      </h2>
+      <p class="newsletter__desc">
+        {{ section.settings.description | default: "Join 12,000+ professionals. Receive our Ultimate Business Presentation Starter Kit — including Executive Cover, Agenda, Strategy, Financial, and Closing slides — plus an exclusive 15% discount code for your first purchase." }}
+      </p>
+      {% form 'customer', class: 'newsletter__form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="newsletter__input-group">
+          <input 
+            type="email" 
+            name="contact[email]" 
+            class="newsletter__input" 
+            placeholder="Enter your work email" 
+            required 
+            autocomplete="email"
+            aria-label="Email address"
+          >
+          <button type="submit" class="newsletter__btn">
+            {{ section.settings.button_label | default: "Send Me The Kit" }}
+          </button>
+        </div>
+        <p class="newsletter__note">
+          {{ section.settings.note | default: 'Use code <strong>WELCOME15</strong> at checkout. No spam, unsubscribe anytime.' }}
+        </p>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "FREE STARTER KIT"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Get 5 Premium Slides + 15% Off Your First Order"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Join 12,000+ professionals. Receive our Ultimate Business Presentation Starter Kit — including Executive Cover, Agenda, Strategy, Financial, and Closing slides — plus an exclusive 15% discount code for your first purchase."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Send Me The Kit"
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Note",
+      "default": "Use code WELCOME15 at checkout. No spam, unsubscribe anytime."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}
