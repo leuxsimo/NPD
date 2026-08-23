@@ -12,7 +12,7 @@
         {{ section.settings.title | default: "Save More with Bundles" }}
       </h2>
       <p class="bundle-banner__desc">
-        {{ section.settings.description | default: "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save 70%." }}
+        {{ section.settings.description | default: "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save up to 70%." }}
       </p>
       <div class="bundle-banner__offers">
         <div class="bundle-offer">
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="bundle-banner__cta">
-      <a href="{{ section.settings.cta_link | default: '/collections/bundles' }}" class="btn">
+      <a href="{{ section.settings.cta_link | default: '/collections/bundles' }}" class="btn bundle-banner__btn">
         {{ section.settings.cta_label | default: "Browse Bundles" }}
       </a>
     </div>
@@ -60,7 +60,7 @@
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save 70%."
+      "default": "Get 5 professional templates for the price of 2. Or grab our Industry Bundle with 20+ templates and save up to 70%."
     },
     {
       "type": "text",

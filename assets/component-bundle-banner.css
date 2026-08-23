@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .bundle-banner {
-  background: var(--color-text);
+  background: var(--color-text); /* #111111 - Black background for strong contrast */
   color: #FFFFFF;
   padding: 100px 24px;
   border-bottom: 1px solid var(--color-border);
@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 64px;
+  gap: 80px;
 }
 
 .bundle-banner__content {
@@ -31,7 +31,7 @@
   color: #FFFFFF;
   display: block;
   margin-bottom: 24px;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .bundle-banner__title {
@@ -50,44 +50,51 @@
   line-height: 1.6;
   color: #CCCCCC;
   margin: 0 0 40px 0;
-  max-width: 500px;
+  max-width: 520px;
 }
 
 .bundle-banner__offers {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 40px;
+  gap: 12px;
 }
 
 .bundle-offer {
   display: flex;
   align-items: baseline;
   gap: 16px;
-  padding: 16px 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: border-color 0.2s ease;
+}
+
+.bundle-offer:hover {
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .bundle-offer__name {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 500;
   color: #FFFFFF;
+  min-width: 140px;
 }
 
 .bundle-offer__price {
   font-family: var(--font-body);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   color: #FFFFFF;
 }
 
 .bundle-offer__save {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: #4ADE80;
+  color: #4ADE80; /* Bright green for savings emphasis */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   margin-left: auto;
 }
 
@@ -95,15 +102,23 @@
   flex-shrink: 0;
 }
 
-.bundle-banner .btn {
+.bundle-banner__btn {
   background: #FFFFFF;
   color: var(--color-text);
   padding: 18px 40px;
+  border-radius: 0px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.2s ease;
 }
 
-.bundle-banner .btn:hover {
-  background: #F0F0EE;
-  opacity: 1;
+.bundle-banner__btn:hover {
+  opacity: 0.9;
 }
 
 /* Mobile Responsive (< 768px) */
@@ -115,6 +130,7 @@
   .bundle-banner__inner {
     flex-direction: column;
     gap: 40px;
+    align-items: flex-start;
   }
 
   .bundle-banner__title {
@@ -124,31 +140,38 @@
   .bundle-banner__desc {
     font-size: 15px;
     max-width: 100%;
+    margin-bottom: 32px;
   }
 
   .bundle-banner__offers {
     width: 100%;
-    margin-bottom: 32px;
   }
 
   .bundle-offer {
-    padding: 16px 20px;
+    padding: 14px 16px;
+    gap: 12px;
   }
 
   .bundle-offer__name {
-    font-size: 16px;
+    font-size: 15px;
+    min-width: 120px;
   }
 
   .bundle-offer__price {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .bundle-offer__save {
+    font-size: 11px;
   }
 
   .bundle-banner__cta {
     width: 100%;
   }
 
-  .bundle-banner .btn {
+  .bundle-banner__btn {
     width: 100%;
     text-align: center;
+    padding: 18px 24px;
   }
 }
