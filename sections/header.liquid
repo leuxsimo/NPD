@@ -25,17 +25,11 @@
 
     <!-- Desktop Navigation (Center on Desktop) -->
     <nav class="site-header__nav" aria-label="Main Navigation">
-      {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
-        {%- for link in section.settings.menu.links -%}
-          <a href="{{ link.url }}" class="site-header__link">{{ link.title }}</a>
-        {%- endfor -%}
-      {%- else -%}
-        <a href="/collections/business" class="site-header__link">Business</a>
-        <a href="/collections/marketing" class="site-header__link">Marketing</a>
-        <a href="/collections/startups" class="site-header__link">Startups</a>
-        <a href="/collections/consulting" class="site-header__link">Consulting</a>
-        <a href="/collections/bundles" class="site-header__link">Bundles</a>
-      {%- endif -%}
+      <a href="#" class="site-header__link">Business</a>
+      <a href="#" class="site-header__link">Marketing</a>
+      <a href="#" class="site-header__link">Startups</a>
+      <a href="#" class="site-header__link">Consulting</a>
+      <a href="#" class="site-header__link">Bundles</a>
     </nav>
 
     <!-- Right Icons (Cart) -->
@@ -47,7 +41,7 @@
           <path d="M16 10a4 4 0 0 1-8 0"></path>
         </svg>
         <span class="site-header__cart-badge" id="CartCountBadge">
-          {{ cart.item_count }}
+          {{ cart.item_count | default: 0 }}
         </span>
       </a>
     </div>
@@ -63,17 +57,11 @@
     <button type="button" class="mobile-drawer__close" id="MobileNavClose" aria-label="Close navigation menu">&times;</button>
   </div>
   <nav class="mobile-drawer__nav" aria-label="Mobile Navigation">
-    {%- if section.settings.menu != blank and section.settings.menu.links.size > 0 -%}
-      {%- for link in section.settings.menu.links -%}
-        <a href="{{ link.url }}" class="mobile-drawer__link">{{ link.title }}</a>
-      {%- endfor -%}
-    {%- else -%}
-      <a href="/collections/business" class="mobile-drawer__link">Business</a>
-      <a href="/collections/marketing" class="mobile-drawer__link">Marketing</a>
-      <a href="/collections/startups" class="mobile-drawer__link">Startups</a>
-      <a href="/collections/consulting" class="mobile-drawer__link">Consulting</a>
-      <a href="/collections/bundles" class="mobile-drawer__link">Bundles</a>
-    {%- endif -%}
+    <a href="#" class="mobile-drawer__link">Business</a>
+    <a href="#" class="mobile-drawer__link">Marketing</a>
+    <a href="#" class="mobile-drawer__link">Startups</a>
+    <a href="#" class="mobile-drawer__link">Consulting</a>
+    <a href="#" class="mobile-drawer__link">Bundles</a>
   </nav>
 </aside>
 
@@ -119,12 +107,6 @@
       "id": "logo_text",
       "label": "Logo Text",
       "default": "SlideLab"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Menu",
-      "default": "main-menu"
     }
   ]
 }
