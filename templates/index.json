@@ -1,23 +1,25 @@
 {
   "sections": {
-    "banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "hero",
       "settings": {
-        "heading": "Presentation Templates",
-        "text": "Professional templates for PowerPoint, Keynote & Google Slides.",
-        "button_label": "Shop all"
+        "eyebrow": "EDITORIAL PRESENTATION SYSTEMS",
+        "title": "Presentation Systems Built for Business.",
+        "subtitle": "Premium PowerPoint, Keynote & Google Slides templates engineered for executives, consultants, and founders.",
+        "cta_label": "Browse Templates",
+        "cta_link": "/collections/all"
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured Templates",
+        "title": "Featured Systems",
         "products_to_show": 4
       }
     }
   },
   "order": [
-    "banner",
+    "hero",
     "featured_collection"
   ]
 }

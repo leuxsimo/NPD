@@ -1,0 +1,63 @@
+{%- comment -%}
+  Editorial Minimalist Hero Section - SlideLab
+{%- endcomment -%}
+
+<section class="hero">
+  <div class="hero__inner">
+    <span class="hero__eyebrow">
+      {{ section.settings.eyebrow | default: "EDITORIAL PRESENTATION SYSTEMS" }}
+    </span>
+    <h1 class="hero__title">
+      {{ section.settings.title | default: "Presentation Systems Built for Business." }}
+    </h1>
+    <p class="hero__subtitle">
+      {{ section.settings.subtitle | default: "Premium PowerPoint, Keynote & Google Slides templates engineered for executives, consultants, and founders." }}
+    </p>
+    <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn hero__cta">
+      {{ section.settings.cta_label | default: "Browse Templates" }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "EDITORIAL PRESENTATION SYSTEMS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Presentation Systems Built for Business."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Premium PowerPoint, Keynote & Google Slides templates engineered for executives, consultants, and founders."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button Label",
+      "default": "Browse Templates"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}
