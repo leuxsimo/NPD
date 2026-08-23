@@ -1,0 +1,124 @@
+{%- comment -%}
+  Editorial Minimalist Benefits Grid Section - SlideLab
+{%- endcomment -%}
+
+<section class="benefits-grid">
+  <div class="benefits-grid__inner">
+    <div class="benefits-grid__header">
+      <span class="benefits-grid__eyebrow">
+        {{ section.settings.eyebrow | default: "WHY SLIDELAB" }}
+      </span>
+      <h2 class="benefits-grid__title">
+        {{ section.settings.title | default: "Engineered for Professional Success" }}
+      </h2>
+      <p class="benefits-grid__subtitle">
+        {{ section.settings.subtitle | default: "Every template is built around real business use cases, not generic design trends." }}
+      </p>
+    </div>
+    <div class="benefits-grid__grid">
+      
+      <!-- Benefit 1 -->
+      <div class="benefit">
+        <div class="benefit__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3 class="benefit__title">Professionally Designed</h3>
+        <p class="benefit__desc">Created by designers with 10+ years of experience in corporate presentations and brand systems.</p>
+      </div>
+
+      <!-- Benefit 2 -->
+      <div class="benefit">
+        <div class="benefit__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+        </div>
+        <h3 class="benefit__title">Fully Editable</h3>
+        <p class="benefit__desc">Every element is customizable. Colors, fonts, layouts, and content - adapt everything to your brand.</p>
+      </div>
+
+      <!-- Benefit 3 -->
+      <div class="benefit">
+        <div class="benefit__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
+        <h3 class="benefit__title">Business-Focused</h3>
+        <p class="benefit__desc">Built around real use cases: investor pitches, annual reports, strategy decks, and client proposals.</p>
+      </div>
+
+      <!-- Benefit 4 -->
+      <div class="benefit">
+        <div class="benefit__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="benefit__title">Lifetime Access</h3>
+        <p class="benefit__desc">Pay once, own forever. Receive free updates and new slides added to your template over time.</p>
+      </div>
+
+      <!-- Benefit 5 -->
+      <div class="benefit">
+        <div class="benefit__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="benefit__title">Commercial License</h3>
+        <p class="benefit__desc">Use templates for client projects, internal presentations, and commercial purposes without restrictions.</p>
+      </div>
+
+      <!-- Benefit 6 -->
+      <div class="benefit">
+        <div class="benefit__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3 class="benefit__title">Premium Support</h3>
+        <p class="benefit__desc">Get help within 24 hours. Our team assists with customization, compatibility, and technical questions.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "WHY SLIDELAB"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Engineered for Professional Success"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Every template is built around real business use cases, not generic design trends."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits grid"
+    }
+  ]
+}
+{% endschema %}

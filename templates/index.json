@@ -39,6 +39,14 @@
         "title": "How It Works",
         "subtitle": "From purchase to presentation in under 60 seconds. No shipping, no waiting, no complications."
       }
+    },
+    "benefits-grid": {
+      "type": "benefits-grid",
+      "settings": {
+        "eyebrow": "WHY SLIDELAB",
+        "title": "Engineered for Professional Success",
+        "subtitle": "Every template is built around real business use cases, not generic design trends."
+      }
     }
   },
   "order": [
@@ -46,6 +54,7 @@
     "trust-bar",
     "format-cards",
     "best-sellers",
-    "how-it-works"
+    "how-it-works",
+    "benefits-grid"
   ]
 }
