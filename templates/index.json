@@ -47,6 +47,16 @@
         "title": "Engineered for Professional Success",
         "subtitle": "Every template is built around real business use cases, not generic design trends."
       }
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "settings": {
+        "eyebrow": "FLAGSHIP TEMPLATE",
+        "title": "The Executive Business Plan Presentation System",
+        "description": "Our most comprehensive template. 150+ slides engineered for founders, consultants, and executives who need to communicate complex strategies with clarity and authority.",
+        "cta_label": "View Template — $49",
+        "note": "One-time payment • Lifetime access"
+      }
     }
   },
   "order": [
@@ -55,6 +65,7 @@
     "format-cards",
     "best-sellers",
     "how-it-works",
-    "benefits-grid"
+    "benefits-grid",
+    "featured-product"
   ]
 }

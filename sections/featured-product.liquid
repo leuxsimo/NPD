@@ -1,0 +1,91 @@
+{%- comment -%}
+  Editorial Minimalist Featured Product Section - SlideLab
+{%- endcomment -%}
+
+<section class="featured-product">
+  <div class="featured-product__inner">
+    <div class="featured-product__image">
+      {% if section.settings.product != blank and section.settings.product.featured_image %}
+        <img src="{{ section.settings.product.featured_image | img_url: '800x' }}" alt="{{ section.settings.product.title | escape }}" loading="lazy" width="800" height="600">
+      {% else %}
+        <div class="featured-product__placeholder">
+          <span>FLAGSHIP TEMPLATE PREVIEW</span>
+        </div>
+      {% endif %}
+    </div>
+    <div class="featured-product__content">
+      <span class="featured-product__eyebrow">
+        {{ section.settings.eyebrow | default: "FLAGSHIP TEMPLATE" }}
+      </span>
+      <h2 class="featured-product__title">
+        {{ section.settings.title | default: "The Executive Business Plan Presentation System" }}
+      </h2>
+      <p class="featured-product__desc">
+        {{ section.settings.description | default: "Our most comprehensive template. 150+ slides engineered for founders, consultants, and executives who need to communicate complex strategies with clarity and authority." }}
+      </p>
+      <ul class="featured-product__features">
+        <li>150+ professionally designed slides</li>
+        <li>5 complete business plan sections</li>
+        <li>Financial models & KPI dashboards</li>
+        <li>Dark & light theme variants included</li>
+        <li>Free lifetime updates</li>
+      </ul>
+      <div class="featured-product__cta-row">
+        <a href="{{ section.settings.product.url | default: '#' }}" class="btn featured-product__btn">
+          {{ section.settings.cta_label | default: "View Template — $49" }}
+        </a>
+        <span class="featured-product__note">
+          {{ section.settings.note | default: "One-time payment • Lifetime access" }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Featured Product"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "FLAGSHIP TEMPLATE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The Executive Business Plan Presentation System"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Our most comprehensive template. 150+ slides engineered for founders, consultants, and executives who need to communicate complex strategies with clarity and authority."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button Label",
+      "default": "View Template — $49"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "One-time payment • Lifetime access"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured product"
+    }
+  ]
+}
+{% endschema %}
