@@ -23,9 +23,9 @@
   justify-content: space-between;
 }
 
-/* Logo */
+/* Logo Typography — Playfair Display 28px, 600 weight, 0.05em letter-spacing */
 .site-header__logo {
-  font-family: var(--font-heading);
+  font-family: 'Playfair Display', 'Georgia', serif;
   font-size: 28px;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -95,7 +95,7 @@
   right: -8px;
   width: 18px;
   height: 18px;
-  background-color: var(--color-text);
+  background-color: #111111;
   color: #FFFFFF;
   font-size: 10px;
   border-radius: 50%;
