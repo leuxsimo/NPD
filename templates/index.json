@@ -10,6 +10,10 @@
         "cta_link": "/collections/all"
       }
     },
+    "trust-bar": {
+      "type": "trust-bar",
+      "settings": {}
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -20,6 +24,7 @@
   },
   "order": [
     "hero",
+    "trust-bar",
     "featured_collection"
   ]
 }

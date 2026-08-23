@@ -1,0 +1,66 @@
+/* ==========================================================================
+   SlideLab Component: Trust Bar Section
+   ========================================================================== */
+
+.trust-bar {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 40px 24px;
+}
+
+.trust-bar__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.trust-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.trust-bar__icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-text);
+  stroke-width: 1.2;
+}
+
+.trust-bar__label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555555;
+  text-align: center;
+}
+
+/* Mobile Responsive (< 768px) */
+@media (max-width: 767px) {
+  .trust-bar {
+    padding: 32px 24px;
+  }
+
+  .trust-bar__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 24px;
+  }
+
+  .trust-bar__item {
+    flex: 0 0 calc(33.333% - 16px);
+  }
+
+  /* Last row: center remaining 2 items */
+  .trust-bar__item:nth-child(4),
+  .trust-bar__item:nth-child(5) {
+    flex: 0 0 calc(33.333% - 16px);
+  }
+}
