@@ -22,11 +22,14 @@
         "subtitle": "Every template includes PowerPoint, Keynote, and Google Slides versions. Edit on any device, anywhere."
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "best-sellers": {
+      "type": "best-sellers",
       "settings": {
-        "title": "Featured Systems",
-        "products_to_show": 4
+        "eyebrow": "MOST POPULAR",
+        "title": "Best Selling Templates",
+        "subtitle": "Professionally engineered presentation systems trusted by executives and consultants worldwide.",
+        "cta_label": "View All Templates",
+        "cta_link": "/collections/all"
       }
     }
   },
@@ -34,6 +37,6 @@
     "hero",
     "trust-bar",
     "format-cards",
-    "featured_collection"
+    "best-sellers"
   ]
 }

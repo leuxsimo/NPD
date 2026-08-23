@@ -1,0 +1,119 @@
+{%- comment -%}
+  Editorial Minimalist Best Sellers Section - SlideLab
+{%- endcomment -%}
+
+<section class="best-sellers">
+  <div class="best-sellers__inner">
+    <div class="best-sellers__header">
+      <span class="best-sellers__eyebrow">
+        {{ section.settings.eyebrow | default: "MOST POPULAR" }}
+      </span>
+      <h2 class="best-sellers__title">
+        {{ section.settings.title | default: "Best Selling Templates" }}
+      </h2>
+      <p class="best-sellers__subtitle">
+        {{ section.settings.subtitle | default: "Professionally engineered presentation systems trusted by executives and consultants worldwide." }}
+      </p>
+    </div>
+    
+    <div class="best-sellers__grid">
+      {% assign collection = collections['best-sellers'] %}
+      {% if collection != blank and collection.products.size > 0 %}
+        {% for product in collection.products limit: 4 %}
+          <a href="{{ product.url }}" class="product-card">
+            <div class="product-card__image">
+              {% if product.featured_image %}
+                <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title | escape }}" loading="lazy" width="600" height="450">
+              {% else %}
+                <div class="product-card__placeholder">
+                  <span>Preview</span>
+                </div>
+              {% endif %}
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{ product.title }}</h3>
+              <div class="product-card__formats">
+                <span class="format-badge">PPTX</span>
+                <span class="format-badge">KEY</span>
+                <span class="format-badge">GSlides</span>
+              </div>
+              <div class="product-card__price">
+                <span class="price">{{ product.price | money }}</span>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..4) %}
+          <div class="product-card">
+            <div class="product-card__image">
+              <div class="product-card__placeholder">
+                <span>Preview {{ i }}</span>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">Sample Template System {{ i }}</h3>
+              <div class="product-card__formats">
+                <span class="format-badge">PPTX</span>
+                <span class="format-badge">KEY</span>
+                <span class="format-badge">GSlides</span>
+              </div>
+              <div class="product-card__price">
+                <span class="price">$49.00</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="best-sellers__cta">
+      <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn">
+        {{ section.settings.cta_label | default: "View All Templates" }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Best sellers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "MOST POPULAR"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Best Selling Templates"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Professionally engineered presentation systems trusted by executives and consultants worldwide."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button Label",
+      "default": "View All Templates"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best sellers"
+    }
+  ]
+}
+{% endschema %}
