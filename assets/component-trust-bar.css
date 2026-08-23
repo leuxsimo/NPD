@@ -49,6 +49,7 @@
   }
 
   .trust-bar__inner {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 32px 24px;
@@ -56,11 +57,34 @@
 
   .trust-bar__item {
     flex: 0 0 calc(33.333% - 16px);
+    max-width: calc(33.333% - 16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
-  /* Last row: center remaining 2 items */
+  /* Center the last 2 items on the second row */
   .trust-bar__item:nth-child(4),
   .trust-bar__item:nth-child(5) {
     flex: 0 0 calc(33.333% - 16px);
+    max-width: calc(33.333% - 16px);
+  }
+
+  /* Add a spacer to push items 4 and 5 to center */
+  .trust-bar__inner::after {
+    content: '';
+    flex: 0 0 calc(33.333% - 16px);
+    max-width: calc(33.333% - 16px);
+  }
+
+  .trust-bar__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .trust-bar__label {
+    font-size: 10px;
+    letter-spacing: 0.05em;
   }
 }
