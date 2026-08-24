@@ -1,0 +1,105 @@
+{%- comment -%}
+  Editorial Minimalist Bundle Builder Section - SlideLab
+{%- endcomment -%}
+
+<div class="bundle-builder">
+  <div class="bundle-builder__header">
+    <span class="bundle-builder__eyebrow">BUILD YOUR BUNDLE</span>
+    <h1 class="bundle-builder__title">Create Your Custom 6-Pack</h1>
+    <p class="bundle-builder__subtitle">Select any 6 templates and save 40%. Mix and match across all categories.</p>
+    <div class="bundle-builder__progress">
+      <div class="bundle-builder__progress-bar">
+        <div class="bundle-builder__progress-fill" style="width: 0%"></div>
+      </div>
+      <span class="bundle-builder__progress-text">0 of 6 selected</span>
+    </div>
+  </div>
+
+  <div class="bundle-builder__inner">
+    <div class="bundle-builder__products">
+      {% assign all_products = collections['all'].products %}
+      {% if all_products.size > 0 %}
+        {% for product in all_products %}
+          <div class="bundle-product-card" data-product-id="{{ product.id }}" data-product-title="{{ product.title | escape }}" data-product-price="{{ product.price | money_without_currency | remove: ',' }}">
+            <div class="bundle-product-card__image">
+              {% if product.featured_image %}
+                <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title | escape }}" loading="lazy">
+              {% else %}
+                <div class="bundle-product-card__placeholder">Preview</div>
+              {% endif %}
+            </div>
+            <div class="bundle-product-card__info">
+              <h3 class="bundle-product-card__title">{{ product.title }}</h3>
+              <div class="bundle-product-card__formats">
+                <span class="format-badge">PPTX</span>
+                <span class="format-badge">KEY</span>
+                <span class="format-badge">GSlides</span>
+              </div>
+              <div class="bundle-product-card__price">
+                <span class="bundle-product-card__individual-price">{{ product.price | money }}</span>
+              </div>
+            </div>
+            <button class="bundle-product-card__select" type="button" aria-label="Select {{ product.title | escape }}">
+              <span class="bundle-product-card__check">✓</span>
+            </button>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% assign sample_titles = "The Executive Business Plan System,Marketing Strategy & Campaign Deck,Tech Startup Pitch System,Management Consulting Framework,Financial Operations & KPI System,Investor Pitch & Growth System,Brand Guidelines & Identity Deck,Corporate Strategy & Planning Deck,SaaS Metrics & Analytics Deck" | split: "," %}
+        {% for title in sample_titles %}
+          <div class="bundle-product-card" data-product-id="{{ forloop.index }}" data-product-title="{{ title | escape }}" data-product-price="29">
+            <div class="bundle-product-card__image">
+              <div class="bundle-product-card__placeholder">Preview</div>
+            </div>
+            <div class="bundle-product-card__info">
+              <h3 class="bundle-product-card__title">{{ title }}</h3>
+              <div class="bundle-product-card__formats">
+                <span class="format-badge">PPTX</span>
+                <span class="format-badge">KEY</span>
+                <span class="format-badge">GSlides</span>
+              </div>
+              <div class="bundle-product-card__price">
+                <span class="bundle-product-card__individual-price">$29.00</span>
+              </div>
+            </div>
+            <button class="bundle-product-card__select" type="button" aria-label="Select {{ title | escape }}">
+              <span class="bundle-product-card__check">✓</span>
+            </button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="bundle-builder__summary">
+      <div class="bundle-builder__summary-inner">
+        <h3 class="bundle-builder__summary-title">Your Bundle</h3>
+        <div class="bundle-builder__selected-list">
+          <p class="bundle-builder__empty-message">Select 6 templates to build your bundle</p>
+        </div>
+        <div class="bundle-builder__pricing">
+          <div class="bundle-builder__original-price">
+            <span>Regular Price:</span>
+            <span class="bundle-builder__original-amount">$0.00</span>
+          </div>
+          <div class="bundle-builder__discounted-price">
+            <span>Bundle Price:</span>
+            <span class="bundle-builder__discounted-amount">$0.00</span>
+          </div>
+          <div class="bundle-builder__savings">
+            <span>You Save:</span>
+            <span class="bundle-builder__savings-amount">$0.00</span>
+          </div>
+        </div>
+        <button class="btn bundle-builder__add-to-cart" disabled type="button">Select 6 templates to enable checkout</button>
+        <p class="bundle-builder__note">Select exactly 6 templates to enable checkout</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Bundle Builder",
+  "settings": []
+}
+{% endschema %}
