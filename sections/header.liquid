@@ -25,11 +25,14 @@
 
     <!-- Desktop Navigation (Center on Desktop) -->
     <nav class="site-header__nav" aria-label="Main Navigation">
-      <a href="#" class="site-header__link">Business</a>
-      <a href="#" class="site-header__link">Marketing</a>
-      <a href="#" class="site-header__link">Startups</a>
-      <a href="#" class="site-header__link">Consulting</a>
-      <a href="#" class="site-header__link">Bundles</a>
+      {%- assign main_menu = linklists[section.settings.menu] -%}
+      {%- if main_menu != blank -%}
+        {%- for link in main_menu.links -%}
+          <a href="{{ link.url }}" class="site-header__link"{% if link.url == request.path %} aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="/collections/all" class="site-header__link">All Templates</a>
+      {%- endif -%}
     </nav>
 
     <!-- Right Icons (Cart) -->
@@ -57,11 +60,14 @@
     <button type="button" class="mobile-drawer__close" id="MobileNavClose" aria-label="Close navigation menu">&times;</button>
   </div>
   <nav class="mobile-drawer__nav" aria-label="Mobile Navigation">
-    <a href="#" class="mobile-drawer__link">Business</a>
-    <a href="#" class="mobile-drawer__link">Marketing</a>
-    <a href="#" class="mobile-drawer__link">Startups</a>
-    <a href="#" class="mobile-drawer__link">Consulting</a>
-    <a href="#" class="mobile-drawer__link">Bundles</a>
+    {%- assign main_menu = linklists[section.settings.menu] -%}
+    {%- if main_menu != blank -%}
+      {%- for link in main_menu.links -%}
+        <a href="{{ link.url }}" class="mobile-drawer__link"{% if link.url == request.path %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- endfor -%}
+    {%- else -%}
+      <a href="/collections/all" class="mobile-drawer__link">All Templates</a>
+    {%- endif -%}
   </nav>
 </aside>
 
@@ -107,6 +113,12 @@
       "id": "logo_text",
       "label": "Logo Text",
       "default": "SlideLab"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation Menu",
+      "default": "main-menu"
     }
   ]
 }
