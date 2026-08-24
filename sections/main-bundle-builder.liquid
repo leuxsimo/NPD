@@ -97,6 +97,32 @@
   </div>
 </div>
 
+{%- comment -%} Mobile Summary - Fixed at Bottom (hidden on desktop) {%- endcomment -%}
+<div class="bundle-builder__mobile-summary">
+  <div class="bundle-builder__summary-inner">
+    <h3 class="bundle-builder__summary-title">Your Bundle</h3>
+    <div class="bundle-builder__selected-list">
+      <p class="bundle-builder__empty-message">Select 6 templates to build your bundle</p>
+    </div>
+    <div class="bundle-builder__pricing">
+      <div class="bundle-builder__original-price">
+        <span>Regular Price:</span>
+        <span class="bundle-builder__original-amount">$0.00</span>
+      </div>
+      <div class="bundle-builder__discounted-price">
+        <span>Bundle Price:</span>
+        <span class="bundle-builder__discounted-amount">$0.00</span>
+      </div>
+      <div class="bundle-builder__savings">
+        <span>You Save:</span>
+        <span class="bundle-builder__savings-amount">$0.00</span>
+      </div>
+    </div>
+    <button class="btn bundle-builder__add-to-cart" disabled type="button">Select 6 templates to enable checkout</button>
+    <p class="bundle-builder__note">Select exactly 6 templates to enable checkout</p>
+  </div>
+</div>
+
 {% schema %}
 {
   "name": "Main Bundle Builder",
