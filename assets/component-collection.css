@@ -6,6 +6,8 @@
   background: var(--color-bg);
   padding: 80px 24px 60px 24px;
   border-bottom: 1px solid var(--color-border);
+  position: relative;
+  z-index: 1;
 }
 
 .collection-header__inner {
@@ -32,15 +34,16 @@
 }
 
 .collection-toolbar {
-  background: rgba(250, 250, 249, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(250, 250, 249, 0.98);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 24px;
   border-bottom: 1px solid var(--color-border);
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 80px; /* Below main header on desktop */
-  z-index: 100; /* High enough to stay on top */
+  z-index: 200; /* High enough to stay on top of content */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 @media (min-width: 768px) {
@@ -112,6 +115,12 @@
 .collection-products__inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.product-grid,
+.product-card {
+  position: relative;
+  z-index: 1;
 }
 
 .product-grid {
@@ -262,7 +271,6 @@
   .collection-toolbar {
     top: 64px; /* Below mobile header */
     padding: 16px 24px;
-    z-index: 100;
   }
 
   .collection-toolbar__filters {
