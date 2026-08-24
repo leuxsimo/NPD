@@ -1,0 +1,250 @@
+/* ==========================================================================
+   SlideLab Component: Lead Magnet / Free Starter Kit
+   ========================================================================== */
+
+.lead-magnet {
+  background: var(--color-bg);
+  padding: 120px 24px 120px 24px;
+}
+
+.lead-magnet__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lead-magnet__content {
+  text-align: center;
+}
+
+.lead-magnet__eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--color-text);
+  margin-bottom: 32px;
+}
+
+.lead-magnet__title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0 0 24px 0;
+}
+
+.lead-magnet__desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0 0 48px 0;
+}
+
+.lead-magnet__slides {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.slide-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.slide-preview__image {
+  aspect-ratio: 16 / 10;
+  background: #F5F5F4;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-preview__placeholder {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #666666;
+  text-align: center;
+  padding: 8px;
+}
+
+.slide-preview__label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: #555555;
+  font-weight: 500;
+}
+
+.lead-magnet__form-wrapper {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.lead-magnet__form {
+  margin-bottom: 32px;
+}
+
+.lead-magnet__input-group {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--color-text);
+  background: var(--color-bg);
+  margin-bottom: 24px;
+}
+
+.lead-magnet__input {
+  flex: 1;
+  padding: 18px 24px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.lead-magnet__input::placeholder {
+  color: #999999;
+}
+
+.lead-magnet__btn {
+  padding: 18px 32px;
+  background: var(--color-text);
+  color: #FFFFFF;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.lead-magnet__btn:hover {
+  opacity: 0.85;
+}
+
+.lead-magnet__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #555555;
+}
+
+.benefit-item svg {
+  flex-shrink: 0;
+  color: var(--color-text);
+}
+
+.benefit-item strong {
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.lead-magnet__success-message {
+  text-align: center;
+  padding: 48px 24px;
+  background: #F5F5F4;
+  border: 1px solid var(--color-border);
+}
+
+.lead-magnet__success-message svg {
+  color: #4ADE80;
+  margin-bottom: 24px;
+}
+
+.lead-magnet__success-message h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  margin: 0 0 12px 0;
+}
+
+.lead-magnet__success-message p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #555555;
+  margin: 0 0 8px 0;
+}
+
+.lead-magnet__code-display {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.lead-magnet__code-display strong {
+  font-size: 24px;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+/* Mobile Responsive (< 768px) */
+@media (max-width: 767px) {
+  .lead-magnet {
+    padding: 100px 24px 80px 24px;
+  }
+
+  .lead-magnet__title {
+    font-size: 32px;
+  }
+
+  .lead-magnet__desc {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  .lead-magnet__slides {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .slide-preview:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .lead-magnet__input-group {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .lead-magnet__input {
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 20px;
+  }
+
+  .lead-magnet__btn {
+    width: 100%;
+    padding: 18px 24px;
+  }
+
+  .lead-magnet__benefits {
+    gap: 12px;
+  }
+
+  .benefit-item {
+    font-size: 13px;
+  }
+}
