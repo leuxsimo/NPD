@@ -203,6 +203,40 @@
   margin-bottom: 40px;
 }
 
+.product-description__content p {
+  margin-bottom: 24px;
+}
+
+.product-description__content strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Fix bullet points to use dash style */
+.product-description__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.product-description__content ul li {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555555;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  padding-left: 24px;
+  position: relative;
+}
+
+.product-description__content ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-text);
+}
+
 .product-description__features h3 {
   font-family: var(--font-heading);
   font-size: 24px;
