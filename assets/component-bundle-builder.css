@@ -192,7 +192,7 @@
   opacity: 1;
 }
 
-/* Summary Panel */
+/* Desktop Summary Panel */
 .bundle-builder__summary {
   position: sticky;
   top: 100px;
@@ -343,7 +343,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 200;
+    z-index: 100;
     background: var(--color-bg);
     border-top: 1px solid var(--color-border);
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
@@ -352,7 +352,7 @@
   }
 
   .bundle-builder__mobile-summary .bundle-builder__summary-inner {
-    padding: 20px 24px;
+    padding: 24px;
     background: #F5F5F4;
     border: none;
   }
