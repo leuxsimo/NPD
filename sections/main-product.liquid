@@ -1,56 +1,196 @@
 {%- comment -%}
-  Clean Shopify OS 2.0 Main Product Section
+  Editorial Minimalist Main Product Section - SlideLab
 {%- endcomment -%}
 
-<div class="product-section page-width" style="padding: 3rem 0;">
-  <div class="grid grid-cols-2" style="gap: 3rem; align-items: start;">
-    
-    <!-- Product Gallery -->
-    <div class="product-media">
-      {%- if product.featured_media -%}
-        <img src="{{ product.featured_media | image_url: width: 800 }}" alt="{{ product.featured_media.alt | escape }}" width="800" height="auto" style="border-radius: 6px; border: 1px solid var(--color-base-border);">
-      {%- else -%}
-        <div style="background: #f4f4f4; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
-          <span>No image available</span>
-        </div>
-      {%- endif -%}
-    </div>
-
-    <!-- Product Info Form -->
-    <div class="product-info">
-      <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">{{ product.title }}</h1>
-      <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem;">
-        {{ product.price | money }}
+<div class="product-page">
+  <div class="product-page__inner">
+    <!-- Gallery Column (Sticky) -->
+    <div class="product-page__gallery">
+      <div class="product-page__main-image">
+        {% if product.featured_image %}
+          <img id="MainProductImage" src="{{ product.featured_image | img_url: '1200x' }}" alt="{{ product.title | escape }}" loading="lazy">
+        {% else %}
+          <div class="product-page__placeholder">TEMPLATE PREVIEW</div>
+        {% endif %}
       </div>
-
-      {% form 'product', product %}
-        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-        
-        <div style="margin-bottom: 1.5rem;">
-          <label for="Quantity" style="display: block; margin-bottom: 0.5rem;">{{ 'products.product.quantity' | t }}</label>
-          <input type="number" id="Quantity" name="quantity" value="1" min="1" style="width: 80px; padding: 0.5rem; border: 1px solid var(--color-base-border); border-radius: 4px;">
-        </div>
-
-        <button type="submit" class="button" style="width: 100%; padding: 1rem;" {% unless product.available %}disabled{% endunless %}>
-          {% if product.available %}
-            {{ 'products.product.add_to_cart' | t }}
-          {% else %}
-            {{ 'products.product.sold_out' | t }}
-          {% endif %}
-        </button>
-      {% endform %}
-
-      <div style="margin-top: 2rem; line-height: 1.6; color: #444;">
-        {{ product.description }}
+      <div class="product-page__thumbnails">
+        {% if product.images.size > 0 %}
+          {% for image in product.images limit: 4 %}
+            <div class="product-page__thumb {% if forloop.first %}active{% endif %}" data-image-url="{{ image | img_url: '1200x' }}">
+              <img src="{{ image | img_url: '300x' }}" alt="{{ product.title | escape }} preview {{ forloop.index }}">
+            </div>
+          {% endfor %}
+        {% else %}
+          {% for i in (1..4) %}
+            <div class="product-page__thumb {% if forloop.first %}active{% endif %}">
+              <div class="product-page__placeholder" style="font-size: 10px;">PREVIEW {{ i }}</div>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
 
+    <!-- Product Info Column -->
+    <div class="product-page__info">
+      <div class="product-page__formats">
+        <span class="format-badge">PPTX</span>
+        <span class="format-badge">KEY</span>
+        <span class="format-badge">GSlides</span>
+      </div>
+      <h1 class="product-page__title">{{ product.title | default: "The Executive Business Plan System" }}</h1>
+      <div class="product-page__rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-count">(47 reviews)</span>
+      </div>
+      <div class="product-page__price-box">
+        <span class="product-page__price">{{ product.price | money | default: "$49.00" }}</span>
+        <span class="product-page__price-note">One-time payment • Lifetime updates</span>
+      </div>
+      <div class="product-page__actions">
+        {% form 'product', product, id: 'add-to-cart-form-native' %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: 1 }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="btn product-page__add-to-cart" style="width: 100%;">Add to Cart</button>
+        {% endform %}
+        <a href="/checkout" class="btn product-page__buy-now" style="text-align: center; text-decoration: none;">Buy Now — Instant Download</a>
+      </div>
+      <div class="product-page__trust-stack">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span>Instant Download</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>Commercial License</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+          </svg>
+          <span>30-Day Money Back</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- Description Section -->
+<section class="product-description">
+  <div class="product-description__inner">
+    <h2 class="product-description__title">About This Template</h2>
+    <div class="product-description__content">
+      {% if product.description != blank %}
+        {{ product.description }}
+      {% else %}
+        <p>Engineered specifically for founders, management consultants, and senior executives. This comprehensive presentation system includes over 150+ bespoke slides designed to help you structure, articulate, and present complex business strategies with authority and aesthetic precision.</p>
+      {% endif %}
+    </div>
+    <div class="product-description__features">
+      <h3>What's Included</h3>
+      <ul>
+        <li>Fully editable PowerPoint, Keynote, and Google Slides files</li>
+        <li>16:9 widescreen format (1920x1080)</li>
+        <li>Free fonts used (download links included)</li>
+        <li>Drag-and-drop image placeholders</li>
+        <li>Easy color customization</li>
+        <li>Lifetime free updates</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Related Products -->
+<section class="related-products">
+  <div class="related-products__inner">
+    <h2 class="related-products__title">You May Also Like</h2>
+    <div class="related-products__grid">
+      {% assign related_collection = product.collections.first %}
+      {% if related_collection != blank and related_collection.products.size > 1 %}
+        {% assign count = 0 %}
+        {% for related_product in related_collection.products %}
+          {% unless related_product.id == product.id or count >= 4 %}
+            {% assign count = count | plus: 1 %}
+            <a href="{{ related_product.url }}" class="product-card">
+              <div class="product-card__image">
+                {% if related_product.featured_image %}
+                  <img src="{{ related_product.featured_image | img_url: '600x' }}" alt="{{ related_product.title | escape }}" loading="lazy">
+                {% else %}
+                  <div class="product-card__placeholder">Preview</div>
+                {% endif %}
+              </div>
+              <div class="product-card__info">
+                <h3 class="product-card__title">{{ related_product.title }}</h3>
+                <div class="product-card__formats">
+                  <span class="format-badge">PPTX</span>
+                  <span class="format-badge">KEY</span>
+                  <span class="format-badge">GSlides</span>
+                </div>
+                <div class="product-card__price">
+                  <span class="price">{{ related_product.price | money }}</span>
+                </div>
+              </div>
+            </a>
+          {% endunless %}
+        {% endfor %}
+      {% else %}
+        {% assign sample_titles = "Marketing Strategy Deck,Startup Pitch System,Financial Operations Deck,Consulting Proposal Framework" | split: "," %}
+        {% for title in sample_titles %}
+          <div class="product-card">
+            <div class="product-card__image">
+              <div class="product-card__placeholder">Preview</div>
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{ title }}</h3>
+              <div class="product-card__formats">
+                <span class="format-badge">PPTX</span>
+                <span class="format-badge">KEY</span>
+                <span class="format-badge">GSlides</span>
+              </div>
+              <div class="product-card__price">
+                <span class="price">$49.00</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Hidden Form for Add to Cart -->
+<form id="add-to-cart-form" action="/cart/add" method="post" style="display:none;">
+  <input type="hidden" name="id" value="{{ product.variants.first.id | default: 1 }}">
+  <input type="hidden" name="quantity" value="1">
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const thumbs = document.querySelectorAll('.product-page__thumb');
+    const mainImg = document.getElementById('MainProductImage');
+    
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        thumbs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const newSrc = this.getAttribute('data-image-url');
+        if (newSrc && mainImg) {
+          mainImg.src = newSrc;
+        }
+      });
+    });
+  });
+</script>
+
 {% schema %}
 {
-  "name": "Main Product",
+  "name": "Main product",
   "settings": []
 }
 {% endschema %}
