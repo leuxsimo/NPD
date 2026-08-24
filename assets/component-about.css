@@ -1,0 +1,260 @@
+/* ==========================================================================
+   SlideLab Component: About Page
+   ========================================================================== */
+
+.about-hero {
+  background: var(--color-bg);
+  padding: 120px 24px 80px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-hero__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #666666;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.about-hero__title {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0 0 24px 0;
+}
+
+.about-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555555;
+  margin: 0;
+}
+
+.about-story {
+  background: #F5F5F4;
+  padding: 100px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-story__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-story__title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0 0 32px 0;
+}
+
+.about-story__text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444444;
+  margin: 0 0 24px 0;
+}
+
+.about-story__text:last-child {
+  margin-bottom: 0;
+}
+
+.about-values {
+  background: var(--color-bg);
+  padding: 100px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-values__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 64px 48px;
+}
+
+.value-card {
+  position: relative;
+}
+
+.value-card__number {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 400;
+  color: #E5E5E5;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.value-card__title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+}
+
+.value-card__desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555555;
+  margin: 0;
+}
+
+.about-stats {
+  background: var(--color-text);
+  color: #FFFFFF;
+  padding: 80px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-stats__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.stat-item__number {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.stat-item__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.about-cta {
+  background: var(--color-bg);
+  padding: 120px 24px;
+  text-align: center;
+}
+
+.about-cta__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-cta__title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0 0 24px 0;
+}
+
+.about-cta__desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555555;
+  margin: 0 0 40px 0;
+}
+
+.about-cta__buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+}
+
+.btn--outline:hover {
+  background: var(--color-text);
+  color: #FFFFFF;
+}
+
+/* Mobile Responsive (< 768px) */
+@media (max-width: 767px) {
+  .about-hero {
+    padding: 100px 24px 60px 24px;
+  }
+
+  .about-hero__title {
+    font-size: 36px;
+  }
+
+  .about-hero__subtitle {
+    font-size: 16px;
+  }
+
+  .about-story {
+    padding: 60px 24px;
+  }
+
+  .about-story__title {
+    font-size: 28px;
+  }
+
+  .about-values {
+    padding: 60px 24px;
+  }
+
+  .about-values__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .value-card__number {
+    font-size: 48px;
+  }
+
+  .about-stats {
+    padding: 60px 24px;
+  }
+
+  .about-stats__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+
+  .stat-item__number {
+    font-size: 36px;
+  }
+
+  .about-cta {
+    padding: 80px 24px;
+  }
+
+  .about-cta__title {
+    font-size: 28px;
+  }
+
+  .about-cta__buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .about-cta__buttons .btn {
+    width: 100%;
+  }
+}
