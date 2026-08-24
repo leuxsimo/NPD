@@ -2,20 +2,22 @@
   Editorial Minimalist Main Collection Section - SlideLab
 {%- endcomment -%}
 
-<section class="collection-header">
-  <div class="collection-header__inner">
-    <h1 class="collection-header__title">{{ collection.title | default: "All Templates" }}</h1>
-    {% if collection.description != blank %}
-      <div class="collection-header__description">
-        {{ collection.description }}
-      </div>
-    {% else %}
-      <div class="collection-header__description">
-        Explore our curated collection of executive presentation systems engineered for PowerPoint, Keynote, and Google Slides.
-      </div>
-    {% endif %}
-  </div>
-</section>
+<div class="collection-page">
+  <section class="collection-header">
+    <div class="collection-header__inner">
+      <h1 class="collection-header__title">{{ collection.title | default: "All Templates" }}</h1>
+      {% if collection.description != blank %}
+        <div class="collection-header__description">
+          {{ collection.description }}
+        </div>
+      {% else %}
+        <div class="collection-header__description">
+          Explore our curated collection of executive presentation systems engineered for PowerPoint, Keynote, and Google Slides.
+        </div>
+      {% endif %}
+    </div>
+  </section>
+</div>
 
 <section class="collection-toolbar">
   <div class="collection-toolbar__inner">
@@ -38,65 +40,67 @@
   </div>
 </section>
 
-<section class="collection-products">
-  <div class="collection-products__inner">
-    {% paginate collection.products by 12 %}
-      {% if collection.products.size > 0 %}
-        <div class="product-grid">
-          {% for product in collection.products %}
-            <a href="{{ product.url }}" class="product-card">
-              <div class="product-card__image">
-                {% if product.featured_image %}
-                  <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title | escape }}" loading="lazy">
-                {% else %}
+<div class="collection-products-wrapper">
+  <section class="collection-products">
+    <div class="collection-products__inner">
+      {% paginate collection.products by 12 %}
+        {% if collection.products.size > 0 %}
+          <div class="product-grid">
+            {% for product in collection.products %}
+              <a href="{{ product.url }}" class="product-card">
+                <div class="product-card__image">
+                  {% if product.featured_image %}
+                    <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title | escape }}" loading="lazy">
+                  {% else %}
+                    <div class="product-card__placeholder">Preview</div>
+                  {% endif %}
+                </div>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">{{ product.title }}</h3>
+                  <div class="product-card__formats">
+                    <span class="format-badge">PPTX</span>
+                    <span class="format-badge">KEY</span>
+                    <span class="format-badge">GSlides</span>
+                  </div>
+                  <div class="product-card__price">
+                    <span class="price">{{ product.price | money }}</span>
+                  </div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          {% if paginate.pages > 1 %}
+            <div class="collection-products__pagination">
+              {{ paginate | default_pagination }}
+            </div>
+          {% endif %}
+        {% else %}
+          {% assign sample_titles = "The Executive Business Plan System,Marketing Strategy & Campaign Deck,Tech Startup Pitch System,Management Consulting Framework,Financial Operations & KPI System,Investor Pitch & Growth System,Brand Guidelines & Identity Deck,Corporate Strategy & Planning Deck" | split: "," %}
+          <div class="product-grid">
+            {% for title in sample_titles %}
+              <a href="/products/business" class="product-card">
+                <div class="product-card__image">
                   <div class="product-card__placeholder">Preview</div>
-                {% endif %}
-              </div>
-              <div class="product-card__info">
-                <h3 class="product-card__title">{{ product.title }}</h3>
-                <div class="product-card__formats">
-                  <span class="format-badge">PPTX</span>
-                  <span class="format-badge">KEY</span>
-                  <span class="format-badge">GSlides</span>
                 </div>
-                <div class="product-card__price">
-                  <span class="price">{{ product.price | money }}</span>
+                <div class="product-card__info">
+                  <h3 class="product-card__title">{{ title }}</h3>
+                  <div class="product-card__formats">
+                    <span class="format-badge">PPTX</span>
+                    <span class="format-badge">KEY</span>
+                    <span class="format-badge">GSlides</span>
+                  </div>
+                  <div class="product-card__price">
+                    <span class="price">$49.00</span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          {% endfor %}
-        </div>
-        {% if paginate.pages > 1 %}
-          <div class="collection-products__pagination">
-            {{ paginate | default_pagination }}
+              </a>
+            {% endfor %}
           </div>
         {% endif %}
-      {% else %}
-        {% assign sample_titles = "The Executive Business Plan System,Marketing Strategy & Campaign Deck,Tech Startup Pitch System,Management Consulting Framework,Financial Operations & KPI System,Investor Pitch & Growth System,Brand Guidelines & Identity Deck,Corporate Strategy & Planning Deck" | split: "," %}
-        <div class="product-grid">
-          {% for title in sample_titles %}
-            <a href="/products/business" class="product-card">
-              <div class="product-card__image">
-                <div class="product-card__placeholder">Preview</div>
-              </div>
-              <div class="product-card__info">
-                <h3 class="product-card__title">{{ title }}</h3>
-                <div class="product-card__formats">
-                  <span class="format-badge">PPTX</span>
-                  <span class="format-badge">KEY</span>
-                  <span class="format-badge">GSlides</span>
-                </div>
-                <div class="product-card__price">
-                  <span class="price">$49.00</span>
-                </div>
-              </div>
-            </a>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endpaginate %}
-  </div>
-</section>
+      {% endpaginate %}
+    </div>
+  </section>
+</div>
 
 <!-- Filter Drawer (Mobile & Desktop) -->
 <div class="filter-drawer" id="filter-drawer">

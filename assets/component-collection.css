@@ -33,17 +33,22 @@
   color: #555555;
 }
 
+/* Toolbar - standalone section with position: fixed */
 .collection-toolbar {
+  position: fixed !important;
+  top: 80px;
+  left: 0;
+  right: 0;
+  width: 100%;
   background: rgba(250, 250, 249, 0.98);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 24px;
   border-bottom: 1px solid var(--color-border);
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 80px; /* Below main header on desktop */
-  z-index: 200; /* High enough to stay on top of content */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 999;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 @media (min-width: 768px) {
@@ -107,9 +112,15 @@
   cursor: pointer;
 }
 
+/* Products wrapper & padding compensation for fixed toolbar */
+.collection-products-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
 .collection-products {
   background: var(--color-bg);
-  padding: 60px 24px 120px 24px;
+  padding: 140px 24px 120px 24px; /* 80px toolbar + spacing */
 }
 
 .collection-products__inner {
@@ -269,8 +280,12 @@
   }
 
   .collection-toolbar {
-    top: 64px; /* Below mobile header */
+    top: 64px;
     padding: 16px 24px;
+  }
+
+  .collection-products {
+    padding-top: 124px; /* 64px toolbar + spacing */
   }
 
   .collection-toolbar__filters {
