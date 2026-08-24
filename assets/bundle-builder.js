@@ -45,20 +45,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (progressFill) progressFill.style.width = percentage + '%';
     if (progressText) progressText.textContent = count + ' of ' + BUNDLE_SIZE + ' selected';
 
-    // Update pricing (both desktop and mobile)
-    const originalAmounts = document.querySelectorAll('.bundle-builder__original-amount');
-    const discountedAmounts = document.querySelectorAll('.bundle-builder__discounted-amount');
-    const savingsAmounts = document.querySelectorAll('.bundle-builder__savings-amount');
+    // Update ALL pricing elements (desktop + mobile)
+    document.querySelectorAll('.bundle-builder__original-amount').forEach(el => {
+      el.textContent = '$' + totalPrice.toFixed(2);
+    });
+    document.querySelectorAll('.bundle-builder__discounted-amount').forEach(el => {
+      el.textContent = count === BUNDLE_SIZE ? '$' + BUNDLE_PRICE.toFixed(2) : '$0.00';
+    });
+    document.querySelectorAll('.bundle-builder__savings-amount').forEach(el => {
+      el.textContent = '$' + savings.toFixed(2);
+    });
 
-    originalAmounts.forEach(el => el.textContent = '$' + totalPrice.toFixed(2));
-    discountedAmounts.forEach(el => el.textContent = count === BUNDLE_SIZE ? '$' + BUNDLE_PRICE.toFixed(2) : '$0.00');
-    savingsAmounts.forEach(el => el.textContent = '$' + savings.toFixed(2));
-
-    // Update selected lists (both desktop and mobile)
-    const selectedLists = document.querySelectorAll('.bundle-builder__selected-list');
-    selectedLists.forEach(list => {
+    // Update ALL selected lists
+    document.querySelectorAll('.bundle-builder__selected-list').forEach(list => {
       if (count === 0) {
-        list.innerHTML = '<p class="bundle-builder__empty-message">Select 6 templates to build your bundle</p>';
+        list.innerHTML = '<p class="bundle-builder__empty-message">Select 6 templates</p>';
       } else {
         list.innerHTML = selectedProducts.map(p => `
           <div class="bundle-builder__selected-item">
@@ -69,32 +70,31 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Update add to cart buttons (both desktop and mobile)
-    const addToCartBtns = document.querySelectorAll('.bundle-builder__add-to-cart');
-    addToCartBtns.forEach(btn => {
+    // Update ALL add to cart buttons
+    document.querySelectorAll('.bundle-builder__add-to-cart').forEach(btn => {
       if (count === BUNDLE_SIZE) {
         btn.disabled = false;
         btn.textContent = 'Add 6 Templates to Cart — $99';
       } else {
         btn.disabled = true;
-        btn.textContent = `Select ${BUNDLE_SIZE - count} more template${BUNDLE_SIZE - count !== 1 ? 's' : ''}`;
+        btn.textContent = `Select ${BUNDLE_SIZE - count} more`;
       }
     });
 
     // Add remove handlers
     document.querySelectorAll('.bundle-builder__remove').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.onclick = (e) => {
         e.stopPropagation();
         const id = btn.dataset.id;
         selectedProducts = selectedProducts.filter(p => p.id !== id);
-        const targetCard = document.querySelector(`[data-product-id="${id}"]`);
-        if (targetCard) targetCard.classList.remove('selected');
+        const card = document.querySelector(`[data-product-id="${id}"]`);
+        if (card) card.classList.remove('selected');
         updateBundleUI();
-      });
+      };
     });
   }
 
-  // Add to cart handler for all buttons
+  // Bind add-to-cart click handler
   document.querySelectorAll('.bundle-builder__add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
       if (selectedProducts.length === BUNDLE_SIZE) {
