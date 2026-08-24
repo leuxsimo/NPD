@@ -1,29 +1,191 @@
 {%- comment -%}
-  Clean Shopify OS 2.0 Main Collection Section
+  Editorial Minimalist Main Collection Section - SlideLab
 {%- endcomment -%}
 
-<div class="collection-section page-width" style="padding: 3rem 0;">
-  <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; text-align: center;">{{ collection.title }}</h1>
-  {%- if collection.description != blank -%}
-    <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">{{ collection.description }}</p>
-  {%- endif -%}
-
-  {% paginate collection.products by 12 %}
-    <div class="grid grid-cols-4" style="margin-top: 2rem;">
-      {%- for product in collection.products -%}
-        {% render 'product-card', card_product: product %}
-      {%- else -%}
-        <p>{{ 'sections.featured_collection.no_products' | t }}</p>
-      {%- endfor -%}
-    </div>
-
-    {%- if paginate.pages > 1 -%}
-      <div style="margin-top: 3rem; text-align: center;">
-        {{ paginate | default_pagination }}
+<section class="collection-header">
+  <div class="collection-header__inner">
+    <h1 class="collection-header__title">{{ collection.title | default: "All Templates" }}</h1>
+    {% if collection.description != blank %}
+      <div class="collection-header__description">
+        {{ collection.description }}
       </div>
-    {%- endif -%}
-  {% endpaginate %}
+    {% else %}
+      <div class="collection-header__description">
+        Explore our curated collection of executive presentation systems engineered for PowerPoint, Keynote, and Google Slides.
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="collection-toolbar">
+  <div class="collection-toolbar__inner">
+    <div class="collection-toolbar__filters" id="FilterDrawerTrigger">
+      <button class="filter-toggle" data-filter="industry" type="button">Industry</button>
+      <button class="filter-toggle" data-filter="use-case" type="button">Use Case</button>
+      <button class="filter-toggle" data-filter="style" type="button">Style</button>
+      <button class="filter-toggle" data-filter="format" type="button">Format</button>
+    </div>
+    <div class="collection-toolbar__sort">
+      <label for="sort-by">Sort by:</label>
+      <select id="sort-by" name="sort_by">
+        <option value="best-selling">Best Selling</option>
+        <option value="title-ascending">Title A-Z</option>
+        <option value="price-ascending">Price: Low to High</option>
+        <option value="price-descending">Price: High to Low</option>
+        <option value="created-descending">Newest</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<section class="collection-products">
+  <div class="collection-products__inner">
+    {% paginate collection.products by 12 %}
+      {% if collection.products.size > 0 %}
+        <div class="product-grid">
+          {% for product in collection.products %}
+            <a href="{{ product.url }}" class="product-card">
+              <div class="product-card__image">
+                {% if product.featured_image %}
+                  <img src="{{ product.featured_image | img_url: '600x' }}" alt="{{ product.title | escape }}" loading="lazy">
+                {% else %}
+                  <div class="product-card__placeholder">Preview</div>
+                {% endif %}
+              </div>
+              <div class="product-card__info">
+                <h3 class="product-card__title">{{ product.title }}</h3>
+                <div class="product-card__formats">
+                  <span class="format-badge">PPTX</span>
+                  <span class="format-badge">KEY</span>
+                  <span class="format-badge">GSlides</span>
+                </div>
+                <div class="product-card__price">
+                  <span class="price">{{ product.price | money }}</span>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+        {% if paginate.pages > 1 %}
+          <div class="collection-products__pagination">
+            {{ paginate | default_pagination }}
+          </div>
+        {% endif %}
+      {% else %}
+        {% assign sample_titles = "The Executive Business Plan System,Marketing Strategy & Campaign Deck,Tech Startup Pitch System,Management Consulting Framework,Financial Operations & KPI System,Investor Pitch & Growth System,Brand Guidelines & Identity Deck,Corporate Strategy & Planning Deck" | split: "," %}
+        <div class="product-grid">
+          {% for title in sample_titles %}
+            <a href="/products/business" class="product-card">
+              <div class="product-card__image">
+                <div class="product-card__placeholder">Preview</div>
+              </div>
+              <div class="product-card__info">
+                <h3 class="product-card__title">{{ title }}</h3>
+                <div class="product-card__formats">
+                  <span class="format-badge">PPTX</span>
+                  <span class="format-badge">KEY</span>
+                  <span class="format-badge">GSlides</span>
+                </div>
+                <div class="product-card__price">
+                  <span class="price">$49.00</span>
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+<!-- Filter Drawer (Mobile & Desktop) -->
+<div class="filter-drawer" id="filter-drawer">
+  <div class="filter-drawer__overlay"></div>
+  <div class="filter-drawer__panel">
+    <div class="filter-drawer__header">
+      <h3>Filters</h3>
+      <button class="filter-drawer__close" type="button" aria-label="Close filters">&times;</button>
+    </div>
+    <div class="filter-drawer__content">
+      <div class="filter-group">
+        <h4>Industry</h4>
+        <label><input type="checkbox" name="filter.industry" value="business"> Business</label>
+        <label><input type="checkbox" name="filter.industry" value="marketing"> Marketing</label>
+        <label><input type="checkbox" name="filter.industry" value="startup"> Startup</label>
+        <label><input type="checkbox" name="filter.industry" value="consulting"> Consulting</label>
+      </div>
+      <div class="filter-group">
+        <h4>Use Case</h4>
+        <label><input type="checkbox" name="filter.use-case" value="pitch-deck"> Pitch Deck</label>
+        <label><input type="checkbox" name="filter.use-case" value="business-plan"> Business Plan</label>
+        <label><input type="checkbox" name="filter.use-case" value="annual-report"> Annual Report</label>
+        <label><input type="checkbox" name="filter.use-case" value="proposal"> Proposal</label>
+      </div>
+      <div class="filter-group">
+        <h4>Style</h4>
+        <label><input type="checkbox" name="filter.style" value="minimal"> Minimal</label>
+        <label><input type="checkbox" name="filter.style" value="corporate"> Corporate</label>
+        <label><input type="checkbox" name="filter.style" value="creative"> Creative</label>
+        <label><input type="checkbox" name="filter.style" value="modern"> Modern</label>
+      </div>
+      <div class="filter-group">
+        <h4>Format</h4>
+        <label><input type="checkbox" name="filter.format" value="pptx"> PowerPoint</label>
+        <label><input type="checkbox" name="filter.format" value="key"> Keynote</label>
+        <label><input type="checkbox" name="filter.format" value="gslides"> Google Slides</label>
+      </div>
+    </div>
+    <div class="filter-drawer__footer">
+      <button class="btn filter-drawer__apply" type="button">Apply Filters</button>
+      <button class="filter-drawer__clear" type="button">Clear All</button>
+    </div>
+  </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterTriggers = document.querySelectorAll('.filter-toggle, #FilterDrawerTrigger');
+    const filterDrawer = document.getElementById('filter-drawer');
+    const filterClose = document.querySelector('.filter-drawer__close');
+    const filterOverlay = document.querySelector('.filter-drawer__overlay');
+    const filterApply = document.querySelector('.filter-drawer__apply');
+    const filterClear = document.querySelector('.filter-drawer__clear');
+
+    if (filterTriggers.length && filterDrawer) {
+      filterTriggers.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          filterDrawer.classList.add('active');
+        });
+      });
+    }
+
+    if (filterClose && filterDrawer) {
+      filterClose.addEventListener('click', function() {
+        filterDrawer.classList.remove('active');
+      });
+    }
+
+    if (filterOverlay && filterDrawer) {
+      filterOverlay.addEventListener('click', function() {
+        filterDrawer.classList.remove('active');
+      });
+    }
+
+    if (filterApply && filterDrawer) {
+      filterApply.addEventListener('click', function() {
+        filterDrawer.classList.remove('active');
+      });
+    }
+
+    if (filterClear && filterDrawer) {
+      filterClear.addEventListener('click', function() {
+        const checkboxes = filterDrawer.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(cb => cb.checked = false);
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
