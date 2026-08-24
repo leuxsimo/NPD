@@ -6,8 +6,9 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  z-index: 1000; /* Higher than toolbar */
+  z-index: 200; /* Higher than toolbar */
   height: 80px;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
@@ -15,13 +16,9 @@
   align-items: center;
 }
 
-#MainContent {
-  padding-top: 80px;
-}
-
 @media (max-width: 767px) {
-  #MainContent {
-    padding-top: 64px;
+  .site-header {
+    height: 64px;
   }
 }
 

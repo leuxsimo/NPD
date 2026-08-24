@@ -2,10 +2,17 @@
    SlideLab Component: Collection Page
    ========================================================================== */
 
+.collection-page {
+  overflow-x: visible;
+}
+
 /* Collection header - below site header */
 .collection-header {
   background: var(--color-bg);
-  padding: 140px 24px 60px 24px; /* Top padding = header (80) + toolbar (60) */
+  padding-top: 140px; /* 80 (header) + 60 (toolbar) */
+  padding-bottom: 60px;
+  padding-left: 24px;
+  padding-right: 24px;
   border-bottom: 1px solid var(--color-border);
   position: relative;
   z-index: 1;
@@ -34,22 +41,18 @@
   color: #555555;
 }
 
-/* Toolbar wrapper - fixed positioning */
-.toolbar-wrapper {
-  position: fixed;
-  top: 80px; /* Below site header */
-  left: 0;
-  right: 0;
-  z-index: 999;
+/* Sticky Toolbar */
+.collection-toolbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 80px; /* Distance from top (below site header) */
   background: rgba(250, 250, 249, 0.98);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-.collection-toolbar {
-  padding: 20px 24px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 24px;
 }
 
 .collection-toolbar__inner {
@@ -107,13 +110,15 @@
   cursor: pointer;
 }
 
-/* Products - compensate for fixed elements */
+/* Products */
 .collection-products {
   background: var(--color-bg);
-  padding-top: 80px; /* Extra space for fixed toolbar */
-  padding-bottom: 120px;
+  padding-top: 60px;
+  padding-bottom: 80px; /* Normal spacing */
   padding-left: 24px;
   padding-right: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .collection-products__inner {
@@ -264,12 +269,8 @@
 
 /* Mobile Responsive (< 768px) */
 @media (max-width: 767px) {
-  .toolbar-wrapper {
-    top: 64px;
-  }
-
   .collection-header {
-    padding-top: 124px; /* 64 header + toolbar */
+    padding-top: 124px; /* 64 (header) + toolbar */
     padding-bottom: 40px;
   }
 
@@ -278,11 +279,8 @@
   }
 
   .collection-toolbar {
+    top: 64px; /* Below mobile header */
     padding: 16px 24px;
-  }
-
-  .collection-products {
-    padding-top: 64px;
   }
 
   .collection-toolbar__filters {
