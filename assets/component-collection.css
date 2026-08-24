@@ -2,9 +2,10 @@
    SlideLab Component: Collection Page
    ========================================================================== */
 
+/* Collection header - below site header */
 .collection-header {
   background: var(--color-bg);
-  padding: 80px 24px 60px 24px;
+  padding: 140px 24px 60px 24px; /* Top padding = header (80) + toolbar (60) */
   border-bottom: 1px solid var(--color-border);
   position: relative;
   z-index: 1;
@@ -33,26 +34,22 @@
   color: #555555;
 }
 
-/* Toolbar - standalone section with position: fixed */
-.collection-toolbar {
-  position: fixed !important;
-  top: 80px;
+/* Toolbar wrapper - fixed positioning */
+.toolbar-wrapper {
+  position: fixed;
+  top: 80px; /* Below site header */
   left: 0;
   right: 0;
-  width: 100%;
+  z-index: 999;
   background: rgba(250, 250, 249, 0.98);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
-  z-index: 999;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  padding: 24px;
 }
 
-@media (min-width: 768px) {
-  .collection-toolbar {
-    top: 80px;
-  }
+.collection-toolbar {
+  padding: 20px 24px;
 }
 
 .collection-toolbar__inner {
@@ -110,15 +107,13 @@
   cursor: pointer;
 }
 
-/* Products wrapper & padding compensation for fixed toolbar */
-.collection-products-wrapper {
-  position: relative;
-  z-index: 1;
-}
-
+/* Products - compensate for fixed elements */
 .collection-products {
   background: var(--color-bg);
-  padding: 150px 24px 120px 24px; /* Compensate for fixed toolbar height */
+  padding-top: 80px; /* Extra space for fixed toolbar */
+  padding-bottom: 120px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .collection-products__inner {
@@ -269,8 +264,13 @@
 
 /* Mobile Responsive (< 768px) */
 @media (max-width: 767px) {
+  .toolbar-wrapper {
+    top: 64px;
+  }
+
   .collection-header {
-    padding: 60px 24px 40px 24px;
+    padding-top: 124px; /* 64 header + toolbar */
+    padding-bottom: 40px;
   }
 
   .collection-header__title {
@@ -278,12 +278,11 @@
   }
 
   .collection-toolbar {
-    top: 64px;
     padding: 16px 24px;
   }
 
   .collection-products {
-    padding-top: 130px; /* Compensate for mobile toolbar */
+    padding-top: 64px;
   }
 
   .collection-toolbar__filters {
