@@ -1,30 +1,26 @@
-/* ==========================================================================
-   SlideLab Component: Footer Section
-   ========================================================================== */
-
-.footer {
+.site-footer {
   background: var(--color-bg);
   padding: 80px 24px 40px 24px;
   border-top: 1px solid var(--color-border);
 }
 
-.footer__inner {
+.site-footer__inner {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.footer__grid {
+.site-footer__grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 64px 48px;
   margin-bottom: 64px;
 }
 
-.footer__col--brand {
+.site-footer__col--brand {
   max-width: 320px;
 }
 
-.footer__logo {
+.site-footer__logo {
   font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 600;
@@ -33,7 +29,7 @@
   margin-bottom: 20px;
 }
 
-.footer__tagline {
+.site-footer__tagline {
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.6;
@@ -41,7 +37,7 @@
   margin: 0 0 24px 0;
 }
 
-.footer__shipping-note {
+.site-footer__digital-note {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -54,11 +50,7 @@
   margin: 0;
 }
 
-.footer__shipping-icon {
-  flex-shrink: 0;
-}
-
-.footer__heading {
+.site-footer__heading {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
@@ -68,7 +60,7 @@
   margin: 0 0 24px 0;
 }
 
-.footer__links {
+.site-footer__links {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -77,7 +69,7 @@
   gap: 14px;
 }
 
-.footer__links a {
+.site-footer__links a {
   font-family: var(--font-body);
   font-size: 14px;
   color: #555555;
@@ -85,11 +77,11 @@
   transition: color 0.2s ease;
 }
 
-.footer__links a:hover {
+.site-footer__links a:hover {
   color: var(--color-text);
 }
 
-.footer__bottom {
+.site-footer__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,12 +89,12 @@
   border-top: 1px solid var(--color-border);
 }
 
-.footer__legal {
+.site-footer__legal {
   display: flex;
   gap: 24px;
 }
 
-.footer__legal a {
+.site-footer__legal a {
   font-family: var(--font-body);
   font-size: 13px;
   color: #666666;
@@ -110,39 +102,38 @@
   transition: color 0.2s ease;
 }
 
-.footer__legal a:hover {
+.site-footer__legal a:hover {
   color: var(--color-text);
 }
 
-.footer__copyright {
+.site-footer__copyright {
   font-family: var(--font-body);
   font-size: 13px;
   color: #666666;
 }
 
-/* Mobile Responsive (< 768px) */
 @media (max-width: 767px) {
-  .footer {
+  .site-footer {
     padding: 64px 24px 32px 24px;
   }
 
-  .footer__grid {
+  .site-footer__grid {
     grid-template-columns: 1fr;
     gap: 40px;
     margin-bottom: 48px;
   }
 
-  .footer__col--brand {
+  .site-footer__col--brand {
     max-width: 100%;
   }
 
-  .footer__bottom {
+  .site-footer__bottom {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
   }
 
-  .footer__legal {
+  .site-footer__legal {
     flex-direction: column;
     gap: 12px;
   }
